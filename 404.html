@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <script>
-  var path = location.pathname.replace("/", "");
-  location.replace("/" + path);
+  // SPA fallback for hosts that serve 404 for deep links
+  const path = location.pathname.replace(/^\//, "");
+  // redirect to root with hash route, so React can rehydrate
+  location.replace("/#/" + path);
 </script>
 </head>
 </html>
