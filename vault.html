@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IITH VAULT - NAS User Guideline</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    keyframes: {
+                        'bounce-right': {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '50%': { transform: 'translateX(4px)' }
+                        }
+                    },
+                    animation: {
+                        'bounce-right': 'bounce-right 1s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        /* Sidebar active link styling */
+        .nav-link.active {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-weight: 600;
+    }
+    @media (min-width: 768px) {
+        .nav-link.active {
+            border-left: 4px solid #0284c7;
+        }
+    }
+    @media (max-width: 767px) {
+        .nav-link.active {
+            border-bottom: 3px solid #0284c7;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Top Navigation bar -->
+    <nav class="bg-brand-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-server text-2xl text-brand-500"></i>
+                    <span class="font-bold text-xl tracking-tight">IITH VAULT</span>
+                </div>
+                <div class="hidden md:block">
+                    <span class="text-brand-100 text-sm font-medium bg-brand-700 px-3 py-1 rounded-full">Official User Guideline</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0 order-1 z-30">
+            <div class="md:sticky md:top-24 bg-white rounded-xl shadow-sm border border-slate-300 p-3 md:p-4">
+                <h3 class="hidden md:block text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 px-3">Table of Contents</h3>
+                <div class="md:hidden flex items-center justify-between mb-2 px-1">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Jump to Section</h3>
+                    <i class="fa-solid fa-arrow-right-long text-brand-500 animate-bounce-right text-sm mr-1"></i>
+                </div>
+                <nav class="flex flex-row md:flex-col gap-2 md:gap-0 md:space-y-1 overflow-x-auto md:overflow-visible hide-scrollbar pb-2 md:pb-0">
+                    <a href="#introduction" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">Introduction</a>
+                    <a href="#access-methods" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">1. Access Methods</a>
+                    <a href="#web-portal" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">2. First-Time Login</a>
+                    <a href="#desktop-client" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">3. Desktop Client</a>
+                    <a href="#re-login" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">4. Re-login</a>
+                    <a href="#file-management" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">5. File Management</a>
+                    <a href="#sharing" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">6. Sharing</a>
+                    <a href="#quota" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">7. Storage Quota</a>
+                    <a href="#security" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">8. Security</a>
+                    <a href="#support" class="nav-link whitespace-nowrap px-3 py-2 text-sm text-slate-600 rounded-md hover:bg-slate-50 transition-colors">9. Support</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 order-2 space-y-8 pb-16 min-w-0">
+            
+            <!-- Hero / Intro -->
+            <section id="introduction" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">IITH VAULT</h1>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Network Attached Storage (NAS) Guideline</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    This guide explains how IITH members can securely access and use the IITH VAULT (NAS) using their LDAP credentials. The NAS provides centralized file storage, synchronization, backup, and secure file sharing for authorized users.
+                </p>
+                <div class="flex items-center gap-4 bg-brand-50 p-4 rounded-xl border border-brand-100">
+                    <div class="bg-brand-500 text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <i class="fa-solid fa-network-wired text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-brand-900">IITH VAULT Ecosystem</h4>
+                        <p class="text-sm text-brand-700">Seamlessly connect via Web browser, Desktop Agent, or Mobile app.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 1. Access Methods -->
+            <section id="access-methods" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">1</div>
+                    <h2 class="text-2xl font-bold text-slate-900">Access Methods</h2>
+                </div>
+                
+                <p class="text-slate-600 mb-6">Users can access the VAULT through three primary platforms:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <!-- Web -->
+                    <div class="border border-slate-200 rounded-xl p-5 hover:border-brand-500 transition-colors group">
+                        <i class="fa-solid fa-globe text-3xl text-brand-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-800 mb-1">Web Browser</h3>
+                        <a href="https://vault.comp.iith.ac.in/" target="_blank" class="text-sm text-brand-600 hover:underline break-all">vault.comp.iith.ac.in</a>
+                    </div>
+                    <!-- Desktop -->
+                    <div class="border border-slate-200 rounded-xl p-5 hover:border-brand-500 transition-colors group">
+                        <i class="fa-solid fa-desktop text-3xl text-slate-700 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-800 mb-1">Desktop App</h3>
+                        <a href="https://www.synology.com/en-eu/dsm/feature/drive" target="_blank" class="text-sm text-brand-600 hover:underline">Synology Drive Client</a>
+                    </div>
+                    <!-- Mobile -->
+                    <div class="border border-slate-200 rounded-xl p-5 hover:border-brand-500 transition-colors group">
+                        <i class="fa-solid fa-mobile-screen text-3xl text-slate-700 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-slate-800 mb-1">Mobile App</h3>
+                        <a href="https://www.synology.com/en-eu/dsm/feature/drive" target="_blank" class="text-sm text-brand-600 hover:underline">Synology Drive App</a>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 mt-1"></i>
+                        <div>
+                            <p class="text-sm text-amber-900 font-medium mb-1">Important Connection Details</p>
+                            <ul class="text-sm text-amber-800 space-y-1">
+                                    <li><strong>Server Address:</strong> <code class="bg-amber-100 px-1.5 py-0.5 rounded break-all">vault.comp.iith.ac.in</code> <span class="text-amber-600 block sm:inline mt-1 sm:mt-0">(Only internal access or via VPN)</span></li>
+                                <li><strong>Authentication:</strong> IITH LDAP Username and Password</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. First-Time Login -->
+            <section id="web-portal" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">2</div>
+                    <h2 class="text-2xl font-bold text-slate-900">First-Time Login (Access Method: Web)</h2>
+                </div>
+
+                <ol class="space-y-6 relative border-l-2 border-slate-100 ml-3 md:ml-4">
+                    <li class="pl-8 relative">
+                        <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
+                            <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                        </div>
+                        <h4 class="font-semibold text-slate-800">Open the Web Portal</h4>
+                        <p class="text-slate-600 text-sm mt-1">Navigate to <a href="https://vault.comp.iith.ac.in/" class="text-brand-600 hover:underline">https://vault.comp.iith.ac.in/</a> from any modern browser.</p>
+                    </li>
+                    
+                    <li class="pl-8 relative">
+                        <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
+                            <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                        </div>
+                        <h4 class="font-semibold text-slate-800">Enter Credentials</h4>
+                        <p class="text-slate-600 text-sm mt-1 mb-3">Enter your IITH LDAP username <strong>(do not enter your full email address)</strong> and LDAP password.</p>
+                        
+                        <!-- Visual representation of login -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-5 w-full max-w-sm mb-2">
+                            <div class="text-xl font-bold text-slate-800 mb-4">IITH-Vault Sign In</div>
+                            <div class="space-y-4">
+                                <div class="border-b-2 border-brand-500 pb-1">
+                                    <span class="text-slate-400 text-sm">Username (e.g., cs21btech11001)</span>
+                                </div>
+                                <div class="border-b-2 border-brand-500 pb-1">
+                                    <span class="text-slate-400 text-sm">Password</span>
+                                </div>
+                                <button class="w-full bg-brand-600 text-white rounded py-2 text-sm font-medium hover:bg-brand-700 transition">Sign In</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="pl-8 relative">
+                        <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
+                            <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                        </div>
+                        <h4 class="font-semibold text-slate-800">Access Synology Drive</h4>
+                        <p class="text-slate-600 text-sm mt-1">After successful login, click the <strong>Synology Drive</strong> icon from the application dashboard.</p>
+                    </li>
+
+                    <li class="pl-8 relative">
+                        <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
+                            <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                        </div>
+                        <h4 class="font-semibold text-slate-800">Explore the Interface</h4>
+                        <p class="text-slate-600 text-sm mt-1">Familiarize yourself with available sections: <span class="font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded">My Files</span>, <span class="font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Shared Items</span>, and <span class="font-medium text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Profile/Settings</span>.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- 3. Desktop Client -->
+            <section id="desktop-client" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">3</div>
+                    <h2 class="text-2xl font-bold text-slate-900">Synology Drive Client (Access Method: Desktop App)</h2>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">A. Installation</h3>
+                    <p class="text-sm text-slate-600 mb-4">Install Synology Drive Client from the official Synology download page: <br>
+                    <a href="https://www.synology.com/en-eu/dsm/feature/drive" class="text-brand-600 hover:underline" target="_blank">https://www.synology.com/en-eu/dsm/feature/drive</a></p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-slate-700 text-sm font-medium"><i class="fa-brands fa-windows text-blue-500"></i> Windows (exe/msi)</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-slate-700 text-sm font-medium"><i class="fa-brands fa-apple text-slate-800"></i> Mac (dmg)</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-slate-700 text-sm font-medium"><i class="fa-brands fa-ubuntu text-orange-500"></i> Ubuntu (deb)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">B. Configuration</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Step 1 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-brand-700 mb-2">1. Connect to Server</h4>
+                            <p class="text-sm text-slate-600 mb-3">Open the application and enter the connection details:</p>
+                            <ul class="text-sm text-slate-700 space-y-2 mb-3">
+                                <li><strong>NAS:</strong> <code class="bg-white border px-1 rounded break-all">vault.comp.iith.ac.in</code></li>
+                                <li><strong>Username:</strong> LDAP Username</li>
+                                <li><strong>Password:</strong> LDAP Password</li>
+                            </ul>
+                            <p class="text-xs text-slate-500 italic">Click Next to proceed.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-brand-700 mb-2">2. Choose Task Type</h4>
+                            <div class="flex gap-2 mb-3">
+                                <div class="bg-white border border-brand-300 rounded p-2 flex-1 text-center shadow-sm">
+                                    <i class="fa-solid fa-arrows-rotate text-brand-500 mb-1 text-lg"></i>
+                                    <p class="text-xs font-bold">Sync Task</p>
+                                    <p class="text-[10px] text-slate-500 leading-tight">Two-way real-time sync</p>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded p-2 flex-1 text-center opacity-70">
+                                    <i class="fa-solid fa-arrow-right-to-bracket text-green-500 mb-1 text-lg"></i>
+                                    <p class="text-xs font-bold">Backup Task</p>
+                                    <p class="text-[10px] text-slate-500 leading-tight">One-way backup</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-600">Select <strong>Sync Task</strong> for standard usage.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 md:col-span-2">
+                            <h4 class="font-bold text-brand-700 mb-2">3. Set Up Folders</h4>
+                            <p class="text-sm text-slate-600 mb-3">Select the NAS folder to synchronize (usually <code class="bg-white border px-1 rounded">/home</code>) and choose a local directory on your computer (e.g., <code class="bg-white border px-1 rounded">C:\Users\Name\SynologyDrive</code>).</p>
+                            <p class="text-sm text-slate-600">Click <strong>Next</strong> through the remaining setup windows, then click <strong>Done</strong> and <strong>Open Folder</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4 & 5. Re-login and File Management -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Re-login -->
+                <section id="re-login" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">4</div>
+                        <h2 class="text-xl font-bold text-slate-900">Re-login (Existing)</h2>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600 list-disc pl-5">
+                        <li>Use the saved server profile if available in the client.</li>
+                        <li>Re-enter your LDAP password if it has recently changed.</li>
+                        <li><strong>Restart</strong> the Synology Drive Client if you encounter persistent connection issues.</li>
+                    </ul>
+                </section>
+
+                <!-- File Management -->
+                <section id="file-management" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">5</div>
+                        <h2 class="text-xl font-bold text-slate-900">File Organization</h2>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5 flex-shrink-0"></i> <span>Drag and drop files to upload quickly.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5 flex-shrink-0"></i> <span>Create folders using a proper, consistent naming format.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-0.5 flex-shrink-0"></i> <span>Use version-aware sync where enabled to recover old edits.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5 flex-shrink-0"></i> <span>Avoid storing sensitive data outside of approved, secure folders.</span></li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- 6. Sharing & Permissions -->
+            <section id="sharing" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">6</div>
+                    <h2 class="text-2xl font-bold text-slate-900">File Sharing & Permissions</h2>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1 space-y-4">
+                        <p class="text-slate-600">Easily collaborate by securely sharing files and folders with specific users.</p>
+                        
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                            <h4 class="font-semibold text-slate-800 text-sm mb-2">How to Share:</h4>
+                            <p class="text-sm text-slate-600 mb-1"><strong>Web:</strong> Right-click file/folder &rarr; <i class="fa-solid fa-share-nodes text-slate-400"></i> Share</p>
+                            <p class="text-sm text-slate-600"><strong>Desktop (Windows):</strong> Right-click &rarr; Show More Options &rarr; Synology Drive &rarr; Get Link</p>
+                        </div>
+
+                        <ul class="space-y-2 text-sm text-slate-600 list-disc pl-5 pt-2">
+                            <li>Set a <strong>link expiry date</strong> or <strong>password</strong> if permitted.</li>
+                            <li>Grant <span class="font-mono bg-slate-100 px-1 rounded">Viewer</span> or <span class="font-mono bg-slate-100 px-1 rounded">Editor</span> access strictly based on requirement.</li>
+                            <li>Always <strong>revoke shares</strong> when collaboration is complete.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mockup of share modal -->
+                    <div class="w-full md:w-72 bg-white border border-slate-200 shadow-lg rounded-xl overflow-hidden text-sm">
+                        <div class="bg-slate-50 border-b border-slate-200 px-4 py-2 font-bold text-slate-700 flex justify-between items-center">
+                            Share <i class="fa-solid fa-xmark text-slate-400"></i>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1">Directory Link</label>
+                                <div class="flex border rounded overflow-hidden">
+                                    <input type="text" class="px-2 py-1 w-full text-xs text-slate-500 bg-slate-50 outline-none min-w-0" value="https://vault.comp.iith.ac.in/d/f/..." readonly>
+                                    <button class="bg-slate-100 border-l px-2 hover:bg-slate-200"><i class="fa-regular fa-copy text-slate-600"></i></button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1">Privacy Settings</label>
+                                <div class="border rounded px-2 py-1 flex items-center justify-between text-xs text-slate-700 cursor-pointer">
+                                    <span><i class="fa-solid fa-check text-brand-500 mr-1"></i> Private - Only invitees</span>
+                                    <i class="fa-solid fa-caret-down text-slate-400"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1">Invitee List</label>
+                                <div class="flex gap-2">
+                                    <input type="text" placeholder="User/Group" class="border rounded px-2 py-1 text-xs w-full outline-none">
+                                    <button class="bg-brand-500 text-white rounded px-2"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border-t border-slate-200 px-4 py-2 text-right">
+                            <button class="bg-brand-500 text-white px-4 py-1.5 rounded font-medium text-xs hover:bg-brand-600">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7 & 8. Quota & Security -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Quota -->
+                <section id="quota" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">7</div>
+                        <h2 class="text-xl font-bold text-slate-900">Storage Quota</h2>
+                    </div>
+                    
+                    <p class="text-sm text-slate-600 mb-4">To check your storage limit and current usage:</p>
+                    <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-2 mb-4">
+                        <li>Open account/profile settings in the web portal or desktop client (Global Settings).</li>
+                        <li>Navigate to the <strong>Usage</strong> tab.</li>
+                        <li>Review storage usage against your remaining quota.</li>
+                    </ol>
+                    
+                    <!-- Progress bar visualization -->
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                            <span>/homes</span>
+                            <span>80.5 GB of 300.0 GB</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2">
+                            <div class="bg-brand-500 h-2 rounded-full" style="width: 26.8%"></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3"><i class="fa-solid fa-broom text-slate-400"></i> Tip: Clean obsolete files when nearing limits.</p>
+                    </div>
+                </section>
+
+                <!-- Security -->
+                <section id="security" class="bg-slate-800 rounded-2xl shadow-sm p-6 md:p-8 text-white relative overflow-hidden">
+                    <i class="fa-solid fa-shield-halved absolute -bottom-6 -right-6 text-9xl text-slate-700 opacity-30"></i>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-slate-700 text-slate-300 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">8</div>
+                            <h2 class="text-xl font-bold text-white">Security Best Practices</h2>
+                        </div>
+                        
+                        <ul class="space-y-4 md:space-y-6 mt-6">
+                            <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-desktop text-red-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-slate-200 text-sm">Avoid accessing the Vault from <strong>shared computers.</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-user-lock text-brand-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-slate-200 text-sm"><strong>Do not share</strong> your LDAP credentials with anyone.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-laptop-medical text-green-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-slate-200 text-sm">Use strong endpoint security on all synced devices.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-1 flex-shrink-0"></i>
+                                <span class="text-slate-200 text-sm">Report any suspicious access or activity immediately through the Computer Centre Support Portal.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 9. Troubleshooting -->
+            <section id="support" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">9</div>
+                    <h2 class="text-2xl font-bold text-slate-900">Troubleshooting & Support</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="border border-slate-200 p-4 rounded-xl flex gap-3 items-start">
+                        <i class="fa-solid fa-key text-slate-400 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Invalid Login</h4>
+                            <p class="text-xs text-slate-600 mt-1">Verify your LDAP password is correct and active.</p>
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 p-4 rounded-xl flex gap-3 items-start">
+                        <i class="fa-solid fa-rotate text-slate-400 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Sync Failures</h4>
+                            <p class="text-xs text-slate-600 mt-1">Check network connectivity and ensure you have sufficient local disk space.</p>
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 p-4 rounded-xl flex gap-3 items-start">
+                        <i class="fa-solid fa-ban text-slate-400 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Permission Denied</h4>
+                            <p class="text-xs text-slate-600 mt-1">Confirm your share access or group permissions with the administrator.</p>
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 p-4 rounded-xl flex gap-3 items-start">
+                        <i class="fa-brands fa-chrome text-slate-400 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Browser Issues</h4>
+                            <p class="text-xs text-slate-600 mt-1">Clear your browser cache, disable conflicting extensions, or try incognito mode.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-50 border border-brand-100 rounded-xl p-6 text-center">
+                    <i class="fa-solid fa-headset text-3xl text-brand-500 mb-3"></i>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Still facing issues?</h3>
+                    <p class="text-slate-600 text-sm mb-4">If you encounter any issues not covered here, please raise a support ticket through the <strong>Computer Centre</strong> Support Portal.</p>
+                    <a href="https://support.comp.iith.ac.in/" target="_blank" class="inline-block bg-brand-600 text-white font-medium px-6 py-2.5 rounded-lg shadow-sm hover:bg-brand-700 hover:shadow transition-all">
+                        Open Support Portal <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center pb-8 border-t border-slate-200 pt-8 mt-12">
+                <p class="text-slate-400 text-sm font-medium tracking-widest uppercase">*** END OF GUIDELINE ***</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        // Simple script to highlight active section in sidebar based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Track manual clicks to prevent scroll spy from overriding immediately
+        let isClickScrolling = false;
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isClickScrolling = true;
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Re-enable scroll spy after scrolling finishes (approx 800ms)
+                setTimeout(() => {
+                    isClickScrolling = false;
+                }, 800);
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (isClickScrolling) return;
+
+            let current = '';
+            let maxTop = -1;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 150)) {
+                    // Prevent grid siblings from overriding left-side items
+                    if (sectionTop > maxTop) {
+                        current = section.getAttribute('id');
+                        maxTop = sectionTop;
+                    }
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}` && current !== '') {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
