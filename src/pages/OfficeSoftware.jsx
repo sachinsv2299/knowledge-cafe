@@ -1,19 +1,19 @@
 import React from "react";
 import { ArrowLeft, Monitor } from "lucide-react";
 
-const OfficeSoftware = ({ navigateTo }) => {
+const OfficeSoftware = ({ navigateTo, goBack }) => {
   return (
     <main className="px-4 py-8 md:px-12 md:py-16 lg:px-24 bg-[#FDFBF7] min-h-screen">
 
       {/* Back Button */}
-      <button
-        onClick={() => navigateTo("Home")}
-        className="flex items-center gap-2 text-sm font-semibold text-green-600 mb-8"
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
       >
-        <ArrowLeft size={18}/> BACK TO HOME
+        <ArrowLeft size={18} /> BACK
       </button>
 
-      <div className="max-w-5xl mx-auto bg-white p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl border shadow-sm">
+      <div className="max-w-5xl mx-auto bg-white p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl border border-[#D4AF37] shadow-sm">
 
         {/* Title */}
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">

@@ -1,19 +1,19 @@
 import React from "react";
 import { ArrowLeft } from "lucide-react";
 
-const WindowsActivation = ({ navigateTo }) => {
+const WindowsActivation = ({ navigateTo, goBack }) => {
   return (
     <main className="px-4 py-8 md:p-16 lg:p-24 bg-[#FDFBF7] min-h-screen">
 
       {/* Back Button */}
-      <button
-        onClick={() => navigateTo("Home")}
-        className="flex items-center gap-2 text-sm font-semibold text-green-600 mb-8"
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
       >
-        <ArrowLeft size={18} /> BACK TO HOME
+        <ArrowLeft size={18} /> BACK
       </button>
 
-      <div className="max-w-5xl mx-auto bg-white p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl border shadow-sm">
+      <div className="max-w-5xl mx-auto bg-white p-6 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl border border-[#D4AF37] shadow-sm">
 
         {/* Page Title */}
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
@@ -22,8 +22,8 @@ const WindowsActivation = ({ navigateTo }) => {
 
         {/* Intro */}
         <p className="text-gray-600 mb-8 text-sm md:text-base">
-          The Computer Centre provides activation support for <strong>Windows 10/11 Pro</strong>
-          for institute systems.
+          The Computer Centre provides activation support for <strong>Windows 10/11 Pro (only) </strong>
+           for institute systems.
         </p>
 
         {/* If Windows already installed */}
@@ -128,7 +128,7 @@ const WindowsActivation = ({ navigateTo }) => {
           href="https://support.comp.iith.ac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition"
+          className="inline-block bg-[#F28972] text-white px-6 py-3 rounded-xl hover:bg-green-700 transition"
         >
           Raise Activation Ticket
         </a>

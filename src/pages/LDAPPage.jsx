@@ -1,20 +1,22 @@
 import React from "react";
 import { ArrowLeft, Key, ShieldCheck, User } from "lucide-react";
 
-const LDAPPage = ({ navigateTo }) => {
+const LDAPPage = ({ navigateTo, goBack }) => {
   return (
     <main className="p-10 md:p-24 bg-[#FDFBF7] min-h-screen">
 
-      <div className="max-w-5xl mx-auto bg-white p-10 md:p-14 rounded-[2.5rem] border border-gray-300 shadow-sm">
+      {/* Back Button */}
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
+      >
+        <ArrowLeft size={18} /> BACK
+      </button>
 
-        {/* Back Button */}
-        <button
-          onClick={() => navigateTo("Home")}
-          className="flex items-center gap-3 text-sm font-bold text-green-600 hover:text-[#D2691E] mb-10"
-        >
-          <ArrowLeft size={18}/> BACK TO HOME
-        </button>
 
+      <div className="max-w-5xl mx-auto bg-white p-6 md:p-14 rounded-[2.5rem] border border-[#D4AF37] shadow-sm">
+
+        
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#4A3728] mb-6">
           LDAP Authentication Service
@@ -57,11 +59,16 @@ const LDAPPage = ({ navigateTo }) => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
 
-          <div className="border p-4 rounded-xl text-center">VPN Access</div>
-          <div className="border p-4 rounded-xl text-center">Institute WiFi</div>
-          <div className="border p-4 rounded-xl text-center">Servers & HPC</div>
-          <div className="border p-4 rounded-xl text-center">Internal Applications</div>
-          <div className="border p-4 rounded-xl text-center">Library Services</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">AIMS Portal</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Disha Portal</div>  
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">IITH WiFi</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Eduroam WiFi</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">VPN Access</div>
+
+                  
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Servers & HPC</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Internal Applications</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Library Services</div>
 
         </div>
 

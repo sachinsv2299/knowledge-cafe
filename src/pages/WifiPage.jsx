@@ -1,19 +1,21 @@
-import React from "react";
+  import React from "react";
 import { ArrowLeft, Wifi, Users, Globe } from "lucide-react";
 
-const WifiPage = ({ navigateTo }) => {
+const WifiPage = ({ navigateTo, goBack }) => {
   return (
-    <main className="p-10 md:p-24 bg-[#FDFBF7] min-h-screen">
+    <main className="px-4 py-8 md:p-24 bg-[#FDFBF7] min-h-screen">
 
-      <div className="max-w-5xl mx-auto bg-white p-10 md:p-14 rounded-[2.5rem] border border-gray-300 shadow-sm">
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
+      >
+        <ArrowLeft size={18} /> BACK
+      </button>
+
+      <div className="max-w-5xl mx-auto bg-white p-6 md:p-14 rounded-3xl md:rounded-[2.5rem] border border-[#D4AF37] shadow-sm">
 
         {/* Back Button */}
-        <button
-          onClick={() => navigateTo("Home")}
-          className="flex items-center gap-3 text-sm font-bold text-green-600 hover:text-[#D2691E] mb-10"
-        >
-          <ArrowLeft size={18}/> BACK TO SERVICES
-        </button>
+        
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#4A3728] mb-6">
@@ -98,32 +100,36 @@ const WifiPage = ({ navigateTo }) => {
 
           <a
             href="https://support.comp.iith.ac.in/kb/faq.php?id=22"
-            className="border rounded-xl p-4 hover:bg-[#FDFBF7]"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-[#D4AF37] rounded-xl p-4 hover:bg-[#FDFBF7]"
           >
             How to connect to IITH WiFi
           </a>
 
           <a
             href="https://support.comp.iith.ac.in/kb/faq.php?id=24"
-            className="border rounded-xl p-4 hover:bg-[#FDFBF7]"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-[#D4AF37] rounded-xl p-4 hover:bg-[#FDFBF7]"
           >
             How to connect to IITH Guest WiFi
           </a>
 
           <a
             href="https://support.comp.iith.ac.in/kb/faq.php?id=23"
-            className="border rounded-xl p-4 hover:bg-[#FDFBF7]"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-[#D4AF37] rounded-xl p-4 hover:bg-[#FDFBF7]"
           >
             How to connect to Eduroam WiFi
           </a>
 
-          
-
-          
-
           <a
-            href="#"
-            className="border rounded-xl p-4 hover:bg-[#FDFBF7]"
+            href="https://support.comp.iith.ac.in/kb/faq.php?id=34"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-[#D4AF37] rounded-xl p-4 hover:bg-[#FDFBF7]"
           >
             Domain Name and Certificate Issues
           </a>

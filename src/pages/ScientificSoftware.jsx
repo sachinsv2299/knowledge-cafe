@@ -1,19 +1,19 @@
 import React from "react";
 import { ArrowLeft, Cpu } from "lucide-react";
 
-const ScientificSoftware = ({ navigateTo }) => {
+const ScientificSoftware = ({ navigateTo, goBack }) => {
   return (
     <main className="px-4 py-8 md:px-12 md:py-16 lg:px-24 bg-[#FDFBF7] min-h-screen">
 
       {/* Back Button */}
-      <button
-        onClick={() => navigateTo("Home")}
-        className="flex items-center gap-2 text-sm font-semibold text-green-600 mb-8"
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
       >
-        <ArrowLeft size={18} /> BACK TO HOME
+        <ArrowLeft size={18} /> BACK
       </button>
 
-      <div className="max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-2xl border shadow-sm">
+      <div className="max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-2xl border border-[#D4AF37] shadow-sm">
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold mb-8">
@@ -24,7 +24,7 @@ const ScientificSoftware = ({ navigateTo }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* ANSYS */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">ANSYS</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -48,7 +48,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* THERMO CALC */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Thermo-Calc</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -64,7 +64,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* CRYSTAL MAKER */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">CrystalMaker</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -80,7 +80,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* MATLAB */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">MATLAB</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -96,7 +96,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* MATHEMATICA */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Mathematica</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -112,7 +112,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* CAMTASIA */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Camtasia</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -128,7 +128,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* ORIGIN */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Origin</h3>
             <p className="text-gray-600 text-sm mb-4">
@@ -144,7 +144,7 @@ const ScientificSoftware = ({ navigateTo }) => {
           </div>
 
           {/* LABVIEW */}
-          <div className="p-6 border rounded-xl hover:shadow-md bg-[#FDFBF7]">
+          <div className="p-6 border border-[#D4AF37] rounded-xl hover:shadow-md bg-[#FDFBF7]">
             <Cpu className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">LabVIEW</h3>
             <p className="text-gray-600 text-sm mb-4">

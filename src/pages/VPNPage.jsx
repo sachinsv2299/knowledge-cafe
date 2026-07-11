@@ -1,19 +1,21 @@
 import React from "react";
 import { ArrowLeft, ShieldCheck, Server, Wifi, BookOpen } from "lucide-react";
 
-const VPNPage = ({ navigateTo }) => {
+const VPNPage = ({ navigateTo, goBack }) => {
   return (
-    <main className="p-10 md:p-24 bg-[#FDFBF7] min-h-screen">
+    <main className="px-4 py-8 md:p-24 bg-[#FDFBF7] min-h-screen">
 
-      <div className="max-w-5xl mx-auto bg-white p-10 md:p-14 rounded-[2.5rem] border border-gray-300 shadow-sm">
+      {/* Back Button */}
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
+      >
+        <ArrowLeft size={18} /> BACK
+      </button>
 
-        {/* Back Button */}
-        <button
-          onClick={() => navigateTo("Home")}
-          className="flex items-center gap-3 text-sm font-bold text-green-600 hover:text-[#D2691E] mb-10"
-        >
-          <ArrowLeft size={18} /> BACK TO HOME
-        </button>
+      <div className="max-w-5xl mx-auto bg-white p-6 md:p-14 rounded-3xl md:rounded-[2.5rem] border border-[#D4AF37] shadow-sm">
+
+       
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#4A3728] mb-6">
@@ -66,10 +68,10 @@ const VPNPage = ({ navigateTo }) => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
 
-          <div className="border p-4 rounded-xl text-center">Windows</div>
-          <div className="border p-4 rounded-xl text-center">MacOS</div>
-          <div className="border p-4 rounded-xl text-center">Linux</div>
-          <div className="border p-4 rounded-xl text-center">Android / iOS</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Windows</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">MacOS</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Linux</div>
+          <div className="border border-[#D4AF37] p-4 rounded-xl text-center">Android / iOS</div>
 
         </div>
 
@@ -95,7 +97,7 @@ const VPNPage = ({ navigateTo }) => {
         </p>
 
         <a
-          href="https://support.comp.iith.ac.in/kb/faq.php?id=21"
+          href="https://support.comp.iith.ac.in/kb/faq.php?id=21" target='_blank'
           className="inline-block bg-[#8B5E3C] text-white px-6 py-3 rounded-xl hover:bg-[#D2691E] transition"
         >
           How to Setup IITH WireGuard VPN

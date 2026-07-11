@@ -1,19 +1,19 @@
 import React from "react";
 import { ArrowLeft, Github, Code } from "lucide-react";
 
-const InHouseSoftware = ({ navigateTo }) => {
+const InHouseSoftware = ({ navigateTo, goBack }) => {
   return (
     <main className="px-4 py-8 md:px-12 md:py-16 lg:px-24 bg-[#FDFBF7] min-h-screen">
 
       {/* Back Button */}
-      <button
-        onClick={() => navigateTo("Home")}
-        className="flex items-center gap-2 text-sm font-semibold text-green-600 mb-8"
+      <button 
+        onClick={goBack}
+        className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
       >
-        <ArrowLeft size={18} /> BACK TO HOME
+        <ArrowLeft size={18} /> BACK
       </button>
 
-      <div className="max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-2xl border shadow-sm">
+      <div className="max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-2xl border border-[#D4AF37] shadow-sm">
 
         {/* Page Title */}
         <h1 className="text-3xl md:text-4xl font-bold mb-6">
@@ -29,7 +29,7 @@ const InHouseSoftware = ({ navigateTo }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* Timetabler */}
-          <div className="p-6 border rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
+          <div className="p-6 border border-[#D4AF37] rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
             <Code className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Timetabler</h3>
 
@@ -49,7 +49,7 @@ const InHouseSoftware = ({ navigateTo }) => {
           </div>
 
           {/* Latex Template */}
-          <div className="p-6 border rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
+          <div className="p-6 border border-[#D4AF37] rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
             <Code className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">LaTeX IITH Logo Template</h3>
 
@@ -69,7 +69,7 @@ const InHouseSoftware = ({ navigateTo }) => {
           </div>
 
           {/* Autograder */}
-          <div className="p-6 border rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
+          <div className="p-6 border border-[#D4AF37] rounded-xl bg-[#FDFBF7] hover:shadow-md transition">
             <Code className="text-[#8B5E3C] mb-3"/>
             <h3 className="text-xl font-bold mb-2">Autograder</h3>
 
