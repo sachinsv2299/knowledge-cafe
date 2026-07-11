@@ -1,28 +1,29 @@
 import React from "react";
 import { ArrowLeft, Cloud, Monitor, AlertTriangle } from "lucide-react";
 
-const ADOBE_APPS = [
-  { name: "Adobe Photoshop", platforms: "", purpose: "Industry standard for image editing, photo manipulation, compositing, and digital painting." },
-  { name: "Adobe Illustrator", platforms: "", purpose: "Creating scalable vector graphics such as logos, icons, typography, and complex illustrations." },
-  { name: "Adobe InDesign", platforms: "", purpose: "Page design and layout software for creating print and digital publications like magazines, books, and interactive PDFs." },
-  { name: "Adobe Premiere Pro", platforms: "", purpose: "Professional timeline-based video and film editing." },
-  { name: "Adobe After Effects", platforms: "", purpose: "Creating cinematic visual effects, motion graphics, and complex video compositing." },
-  { name: "Adobe Express", platforms: "", purpose: "Template-driven app for quickly creating social media graphics, flyers, short videos, and web pages." },
+const ADOBE_APPS = [  
   { name: "Adobe Acrobat Pro", platforms: "", purpose: "The standard for creating, editing, signing, and managing PDF documents and forms." },
-  { name: "Adobe Lightroom", platforms: "", purpose: "Cloud-based photo service for batch editing, organizing, and storing photography across devices." },
-  { name: "Adobe Lightroom Classic", platforms: "", purpose: "Desktop-focused, localized photo organization, batch editing, and color correction." },
-  { name: "Adobe Audition", platforms: "", purpose: "Comprehensive toolset for recording, mixing, editing, and restoring audio." },
+  { name: "Adobe After Effects", platforms: "", purpose: "Creating cinematic visual effects, motion graphics, and complex video compositing." },
   { name: "Adobe Animate", platforms: "", purpose: "Creating interactive 2D vector animations for games, apps, and the web." },
+  { name: "Adobe Audition", platforms: "", purpose: "Comprehensive toolset for recording, mixing, editing, and restoring audio." },
   { name: "Adobe Character Animator", platforms: "", purpose: "Animating 2D characters in real-time using your webcam and microphone." },
-  { name: "Adobe Dreamweaver", platforms: "", purpose: "Visual and code-based design and development for modern, responsive websites." },
-  { name: "Adobe Premiere Rush", platforms: "", purpose: "Simplified, cross-platform video editing app for quick, on-the-go video creation and sharing." },
-  { name: "Adobe Fresco", platforms: "", purpose: "Digital drawing and painting app featuring incredibly realistic vector and raster brushes." },
   { name: "Adobe Dimension", platforms: "", purpose: "Creating photorealistic 3D images for branding, product shots, and package design." },
-  { name: "Substance 3D Suite", platforms: "", purpose: "Advanced tools for 3D modeling, material creation, texturing, and staging (includes Painter, Designer, Sampler, and Stager)." },
-  { name: "Adobe XD", platforms: "", purpose: "Designing, prototyping, and sharing user experiences (UI/UX) for websites and mobile apps." },
-  { name: "Adobe Media Encoder", platforms: "", purpose: "Rendering engine used alongside Premiere and After Effects to output video to various formats and devices." },
+  { name: "Adobe Dreamweaver", platforms: "", purpose: "Visual and code-based design and development for modern, responsive websites." },
+  { name: "Adobe Express", platforms: "", purpose: "Template-driven app for quickly creating social media graphics, flyers, short videos, and web pages." },
+  { name: "Adobe Firefly", platforms: "", purpose: "Generative AI for creating images, text effects, and more from simple text prompts." },
+  { name: "Adobe Fresco", platforms: "", purpose: "Digital drawing and painting app featuring incredibly realistic vector and raster brushes." },
+  { name: "Adobe Illustrator", platforms: "", purpose: "Creating scalable vector graphics such as logos, icons, typography, and complex illustrations." },
   { name: "Adobe InCopy", platforms: "", purpose: "Word processing program that integrates directly with InDesign for collaborative editing." },
-];
+  { name: "Adobe InDesign", platforms: "", purpose: "Page design and layout software for creating print and digital publications like magazines, books, and interactive PDFs." },
+  { name:- "Adobe Lightroom", platforms: "", purpose: "Cloud-based photo service for batch editing, organizing, and storing photography across devices." },
+  { name: "Adobe Lightroom Classic", platforms: "", purpose: "Desktop-focused, localized photo organization, batch editing, and color correction." },
+  { name: "Adobe Media Encoder", platforms: "", purpose: "Rendering engine used alongside Premiere and After Effects to output video to various formats and devices." },
+  { name: "Adobe Photoshop", platforms: "", purpose: "Industry standard for image editing, photo manipulation, compositing, and digital painting." },
+  { name: "Adobe Premiere Pro", platforms: "", purpose: "Professional timeline-based video and film editing." },
+  { name: "Adobe Premiere Rush", platforms: "", purpose: "Simplified, cross-platform video editing app for quick, on-the-go video creation and sharing." },
+  { name: "Adobe XD", platforms: "", purpose: "Designing, prototyping, and sharing user experiences (UI/UX) for websites and mobile apps." },
+  { name: "Substance 3D Suite", platforms: "", purpose: "Advanced tools for 3D modeling, material creation, texturing, and staging (includes Painter, Designer, Sampler, and Stager)." },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 const AdobeSuite = ({ navigateTo, goBack }) => {
   return (

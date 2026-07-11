@@ -123,8 +123,8 @@ const App = () => {
           { id: 'cc-s-lan', title: 'LAN', label: 'Computer Centre : Service', topic: 'IT', content: 'Wired connectivity configuration for office and labs.', keywords: 'wired network wall jack dhcp ip address cable mac' },
           { id: 'cc-s-wifi', title: 'WiFi', label: 'Computer Centre : Service', topic: 'IT', content: 'Secure campus-wide wireless network access details.', keywords: 'wireless eduroam guest internet router password reset' },
           { id: 'cc-s-ldap', title: 'LDAP', label: 'Computer Centre : Service', topic: 'IT', content: 'Centralized authentication and Single Sign-On management.', keywords: 'single sign on sso credentials password reset aims disha authentication' },
-          { id: 'cc-s-vpn', title: 'VPN', label: 'Computer Centre : Tool', topic: 'IT', content: 'Instructions for off-campus access to institute journals.', keywords: 'wireguard remote access proxy gpu clusters library' },
-          { id: 'cc-s-ms', title: 'Microsoft Office 365', label: 'Computer Centre : Tool', topic: 'IT', content: 'M365 account provisioning and cloud/desktop tools setup.', keywords: 'word excel powerpoint onedrive teams onenote sharepoint forms outlook publisher' },
+          { id: 'cc-s-vpn', title: 'VPN', label: 'Computer Centre : Tool', topic: 'IT', content: 'Instructions for off-campus access to institute journals.', keywords: 'wireguard remote access proxy gpu clusters library wire guard' },
+          { id: 'cc-s-ms', title: 'Microsoft Office 365', label: 'Computer Centre : Tool', topic: 'IT', content: 'M365 account provisioning and cloud/desktop tools setup.', keywords: 'word excel powerpoint onedrive teams onenote sharepoint forms outlook publisher ms office' },
           { id: 'cc-s-win', title: 'Windows Activation', label: 'Computer Centre : Service', topic: 'IT', content: 'Institutional license activation service.', keywords: 'windows 10 windows 11 pro iso bootable usb rufus os operating system' },
           { id: 'cc-erp-disha', title: 'DISHA Portal', label: 'Computer Centre : Portal', topic: 'IT', content: 'Institute official ERP portal to manage leave, APAR, budget, and more.', link: 'https://disha.iith.ac.in/', keywords: 'erp leave apar budget' },
           { id: 'cc-s-dis', title: 'Discourse Forum', label: 'Computer Centre : Portal', topic: 'IT', content: "It's an Internal Discussion Forum of IITH.", keywords: 'discussions announcements carpooling marketplace lost found tech tips' },
@@ -339,6 +339,13 @@ const App = () => {
     const handlePopState = (event) => {
       if (event.state) {
         setView(event.state);
+        // Reset filters when navigating back to a list/menu view
+        if (event.state.page === 'SubMenu' || event.state.page === 'Home') {
+          setSearchTerm("");
+          setSelectedFilter("");
+          setSelectedLetter("");
+          setSelectedLabel("");
+        }
       } else {
         setView({ page: "Home", mainCat: null, subCat: null, itemId: null });
       }
