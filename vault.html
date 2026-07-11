@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -47,16 +47,16 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9; 
+            background: #f1f5f9;
         }
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
+            background: #cbd5e1;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
+            background: #94a3b8;
         }
-        
+
         /* Sidebar active link styling */
         .nav-link.active {
             background-color: #e0f2fe;
@@ -101,7 +101,7 @@
 
     <!-- Main Layout -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-8">
-        
+
         <!-- Sidebar Navigation -->
         <aside class="w-full md:w-64 flex-shrink-0 order-1 z-30">
             <div class="md:sticky md:top-24 bg-white rounded-xl shadow-sm border border-slate-300 p-3 md:p-4">
@@ -129,7 +129,7 @@
 
         <!-- Main Content -->
         <main class="flex-1 order-2 space-y-8 pb-16 min-w-0">
-            
+
             <!-- Hero / Intro -->
             <section id="introduction" class="bg-white rounded-2xl shadow-sm border border-slate-300 p-6 md:p-10">
                 <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">IITH VAULT</h1>
@@ -154,10 +154,10 @@
                     <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">1</div>
                     <h2 class="text-2xl font-bold text-slate-900">Access Methods</h2>
                 </div>
-                
+
                 <p class="text-slate-600 mb-2">Users can access the VAULT through three primary platforms:</p>
-                <p class="text-brand-700 font-medium text-sm mb-6"><i class="fa-solid fa-circle-info mr-1"></i> Please use the web browser for your first-time login to set up two-factor authentication.</p>
-                
+                <p class="text-red-600 font-medium text-sm mb-6"><i class="fa-solid fa-circle-info mr-1"></i> Please use the web browser for your first-time login to set up two-factor authentication.</p>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                     <!-- Web -->
                     <div class="border border-slate-200 rounded-xl p-5 hover:border-brand-500 transition-colors group">
@@ -185,7 +185,7 @@
                         <div>
                             <p class="text-sm text-amber-900 font-medium mb-1">Important Connection Details</p>
                             <ul class="text-sm text-amber-800 space-y-1">
-                                    <li><strong>Server Address:</strong> <code class="bg-amber-100 px-1.5 py-0.5 rounded break-all">vault.comp.iith.ac.in</code> <span class="text-amber-600 block sm:inline mt-1 sm:mt-0">(Only internal access)</span></li>
+                                <li><strong>Server Address:</strong> <code class="bg-amber-100 px-1.5 py-0.5 rounded break-all">vault.comp.iith.ac.in</code> <span class="text-amber-600 block sm:inline mt-1 sm:mt-0">(Accessible via the institute network or VPN only.)</span></li>
                                 <li><strong>Authentication:</strong> IITH LDAP Username and Password</li>
                             </ul>
                         </div>
@@ -206,16 +206,16 @@
                             <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
                         </div>
                         <h4 class="font-semibold text-slate-800">Open the Web Portal</h4>
-                        <p class="text-slate-600 text-sm mt-1">Navigate to <a href="https://vault.comp.iith.ac.in/" class="text-brand-600 hover:underline">https://vault.comp.iith.ac.in/</a> from any modern browser.</p>
+                        <p class="text-slate-600 text-sm mt-1">Navigate to <a href="https://vault.comp.iith.ac.in/" target="_blank"  class="text-brand-600 hover:underline">https://vault.comp.iith.ac.in/</a> from any modern browser.</p>
                     </li>
-                    
+
                     <li class="pl-8 relative">
                         <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
                             <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
                         </div>
                         <h4 class="font-semibold text-slate-800">Enter Credentials</h4>
                         <p class="text-slate-600 text-sm mt-1 mb-3">Enter your IITH LDAP username <strong>(do not enter your full email address)</strong> and LDAP password.</p>
-                        
+
                         <!-- Visual representation of login -->
                         <div class="bg-slate-50 border border-slate-200 rounded-lg p-5 w-full max-w-sm mb-2">
                             <div class="text-xl font-bold text-slate-800 mb-4">IITH-Vault Sign In</div>
@@ -238,7 +238,7 @@
                         <h4 class="font-semibold text-slate-800">Set Up 2-Factor Authentication</h4>
                         <p class="text-slate-600 text-sm mt-1">To protect your account, you will be prompted to set up a second verification step. Click <strong>Start</strong> and select <strong>Verification code (OTP)</strong>.</p>
                     </li>
-                
+
                     <li class="pl-8 relative">
                         <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
                             <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
@@ -246,7 +246,7 @@
                         <h4 class="font-semibold text-slate-800">Install Authenticator App & Verify</h4>
                         <p class="text-slate-600 text-sm mt-1">Download the <strong>Synology Secure SignIn</strong> mobile application (available on the <i class="fa-brands fa-apple text-slate-800 text-base mx-0.5"></i> App Store and <i class="fa-brands fa-google-play text-emerald-500 text-base mx-0.5"></i> Google Play Store) or a compatible third-party TOTP authenticator (such as Google Authenticator). Scan the provided QR code and enter the 6-digit verification code generated by the Synology Secure SignIn app to complete the setup.</p>
                     </li>
-                
+
                     <li class="pl-8 relative">
                         <div class="absolute w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center -left-[13px] top-0 border-2 border-white">
                             <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
@@ -287,7 +287,7 @@
                     <p class="text-sm text-slate-600 mb-4">Install Synology Drive Client from the official Synology download page: <br>
                     <a href="https://www.synology.com/en-eu/dsm/feature/drive" class="text-brand-600 hover:underline" target="_blank">https://www.synology.com/en-eu/dsm/feature/drive</a></p>
                     <p class="text-sm text-slate-600 mb-4">Click “Download Client” button and choose the appropriate version for your operating system:</p>
-                    
+
                     <div class="flex flex-wrap gap-3">
                         <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-slate-700 text-sm font-medium"><i class="fa-brands fa-windows text-blue-500"></i> Windows (exe/msi)</span>
                         <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-100 text-slate-700 text-sm font-medium"><i class="fa-brands fa-apple text-slate-800"></i> Mac (dmg)</span>
@@ -297,7 +297,7 @@
 
                 <div>
                     <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">B. Configuration</h3>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Step 1 -->
                         <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
@@ -379,7 +379,7 @@
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="flex-1 space-y-4">
                         <p class="text-slate-600">Easily collaborate by securely sharing files and folders with specific users.</p>
-                        
+
                         <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
                             <h4 class="font-semibold text-slate-800 text-sm mb-2">How to Share:</h4>
                             <p class="text-sm text-slate-600 mb-1"><strong>Web:</strong> Right-click file/folder &rarr; <i class="fa-solid fa-share-nodes text-slate-400"></i> Share</p>
@@ -398,13 +398,13 @@
                             <div class="flex items-center gap-2"><i class="fa-brands fa-mixcloud text-brand-500 text-base"></i> Share</div>
                             <i class="fa-solid fa-xmark text-slate-400 cursor-pointer"></i>
                         </div>
-                        
+
                         <!-- Tabs -->
                         <div class="flex px-4 pt-2 gap-2 border-b border-slate-200 bg-slate-50">
                             <button id="tab-permissions" class="px-3 py-2 text-xs font-bold border-b-2 border-brand-500 text-slate-800" onclick="switchTab('permissions')">Permissions</button>
                             <button id="tab-public" class="px-3 py-2 text-xs font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700 cursor-pointer" onclick="switchTab('public')">Public Link</button>
                         </div>
-                        
+
                         <!-- Permissions Content -->
                         <div id="content-permissions" class="p-4 space-y-4">
                             <div>
@@ -474,19 +474,19 @@
                         <div class="bg-slate-100 text-slate-500 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">7</div>
                         <h2 class="text-xl font-bold text-slate-900">Storage Quota</h2>
                     </div>
-                    
+
                     <p class="text-sm text-slate-600 mb-4">To check your storage limit and current usage:</p>
                     <ol class="list-decimal pl-5 text-sm text-slate-600 space-y-2 mb-4">
                         <li>Open account/profile settings in the web portal or desktop client (Global Settings).</li>
                         <li>Navigate to the <strong>Usage</strong> tab.</li>
                         <li>Review storage usage against your remaining quota.</li>
                     </ol>
-                    
+
                     <!-- Progress bar visualization -->
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
                         <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
                             <span>/homes</span>
-                            <span>80.5 GB of 300.0 GB</span>
+                            <span>80.5 GB of 500.0 GB</span>
                         </div>
                         <div class="w-full bg-slate-200 rounded-full h-2">
                             <div class="bg-brand-500 h-2 rounded-full" style="width: 26.8%"></div>
@@ -498,13 +498,13 @@
                 <!-- Security -->
                 <section id="security" class="bg-slate-800 rounded-2xl shadow-sm p-6 md:p-8 text-white relative overflow-hidden">
                     <i class="fa-solid fa-shield-halved absolute -bottom-6 -right-6 text-9xl text-slate-700 opacity-30"></i>
-                    
+
                     <div class="relative z-10">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="bg-slate-700 text-slate-300 w-8 h-8 rounded-lg flex items-center justify-center font-bold flex-shrink-0">8</div>
                             <h2 class="text-xl font-bold text-white">Security Best Practices</h2>
                         </div>
-                        
+
                         <ul class="space-y-4 md:space-y-6 mt-6">
                             <li class="flex items-start gap-3">
                             <i class="fa-solid fa-desktop text-red-400 mt-1 flex-shrink-0"></i>
@@ -624,7 +624,7 @@
                 isClickScrolling = true;
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
-                
+
                 // Re-enable scroll spy after scrolling finishes (approx 800ms)
                 setTimeout(() => {
                     isClickScrolling = false;
