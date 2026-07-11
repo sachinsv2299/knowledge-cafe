@@ -15,7 +15,7 @@ const ADOBE_APPS = [
   { name: "Adobe Illustrator", platforms: "", purpose: "Creating scalable vector graphics such as logos, icons, typography, and complex illustrations." },
   { name: "Adobe InCopy", platforms: "", purpose: "Word processing program that integrates directly with InDesign for collaborative editing." },
   { name: "Adobe InDesign", platforms: "", purpose: "Page design and layout software for creating print and digital publications like magazines, books, and interactive PDFs." },
-  { name:- "Adobe Lightroom", platforms: "", purpose: "Cloud-based photo service for batch editing, organizing, and storing photography across devices." },
+  { name: "Adobe Lightroom", platforms: "", purpose: "Cloud-based photo service for batch editing, organizing, and storing photography across devices." },
   { name: "Adobe Lightroom Classic", platforms: "", purpose: "Desktop-focused, localized photo organization, batch editing, and color correction." },
   { name: "Adobe Media Encoder", platforms: "", purpose: "Rendering engine used alongside Premiere and After Effects to output video to various formats and devices." },
   { name: "Adobe Photoshop", platforms: "", purpose: "Industry standard for image editing, photo manipulation, compositing, and digital painting." },

@@ -13,7 +13,6 @@ const WORKSPACE_APPS = [
   { name: "Google Keep", license: "All Users", purpose: "Note-taking and list-making application." },
   { name: "Google Meet", license: "All Users (Premium for Faculty)", purpose: "Video conferencing. Faculty possess premium features like meeting recording and larger participant limits." },
   { name: "Google Sites", license: "All Users", purpose: "Create and host internal or project-based websites." },
-  // { name: "Originality Reports", license: "Faculty / Staff", purpose: "Scan student work for potential plagiarism against web pages and books." },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 const GoogleWorkspace = ({ navigateTo, goBack }) => {
