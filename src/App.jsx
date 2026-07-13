@@ -17,6 +17,7 @@ import AdobeSuite from './pages/AdobeSuite';
 import GoogleWorkspace from './pages/GoogleWorkspace';
 import ISP from './pages/information_security_policy';
 import AUP from './pages/acceptable_usage_policy';
+import VaultUsage from './pages/Vault_Usage';
 
 
 import { 
@@ -187,7 +188,7 @@ const App = () => {
           { id: 'cc-hd-1', title: 'IITH Email Policy', label: 'Computer Centre : Policy', topic: 'IT', content: ' Institute Email Policy guidelines for creating/maintaining an email account.', link: 'https://docs.google.com/document/d/e/2PACX-1vQcpzfkK3PlQozgik6QSoM-pEYd19HqsurqOQqb_2mDJdE5nyXNVvRWFzSdI2nAnI03dWb219Pmugw9/pub', keywords: 'email policy account' },
           { id: 'cc-hd-3', title: 'Group Mail Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for sending and managing emails through group mailing lists.', link: 'https://comp.iith.ac.in/group-mail-policy.html', keywords: 'group mail email policy' },
           { id: 'cc-hd-2', title: 'Computer Usage Guide', label: 'Computer Centre : Guidelines',  topic: 'IT', content: 'Best Practices for a Safe, Fast, and Organized Environment.', link : 'https://docs.google.com/presentation/d/1M8cdcg0lMSotkNtyaTHKwcNcHJLi53hDL85LS7-KCA4/edit?usp=sharing', keywords: 'computer usage safety speed organization' },
-
+          { id: 'cc-p-vault', title: 'Vault Storage Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Policy on storage allocation, acceptable use, security, and backup for the IITH Vault (NAS).', keywords: 'nas vault storage allocation quota security backup policy acceptable use' },
           { id: 'cc-p-AUP', title: 'Acceptable Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for acceptable use of institute IT resources, systems, networks, and services.', keywords: 'it resources usage policy acceptable use network systems' },
           { id: 'cc-p-ISP', title: 'Information Security Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Policy outlining information security practices, data protection, and security responsibilities.', keywords: 'information security policy data protection cybersecurity' },
 
@@ -1118,6 +1119,10 @@ const App = () => {
           <AUP navigateTo={navigateTo} goBack={goBack} />
         )}
 
+           {view.page === 'ItemDetail' && view.itemId === "cc-p-vault" && (
+          <VaultUsage navigateTo={navigateTo} goBack={goBack} />
+        )}
+
          {view.page === 'ItemDetail' && view.itemId === "cc-p-ISP" && (
           <ISP navigateTo={navigateTo} goBack={goBack} />
         )}
@@ -1168,7 +1173,7 @@ const App = () => {
         )}
 
         {view.page === 'ItemDetail' && view.itemId !== "cc-s-ms" && view.itemId !== "cc-s-vpn" && view.itemId !== "cc-s-ldap" 
-          && view.itemId !== "cc-s-wifi" && view.itemId !== "cc-p-AUP" && view.itemId !== "cc-p-ISP" && view.itemId !== "cc-s-cyb" && view.itemId !== "cc-sup-main" && view.itemId !== "cc-s-dis" 
+          && view.itemId !== "cc-s-wifi" && view.itemId !== "cc-p-AUP" && view.itemId !== "cc-p-vault" && view.itemId !== "cc-p-ISP" && view.itemId !== "cc-s-cyb" && view.itemId !== "cc-sup-main" && view.itemId !== "cc-s-dis" 
           && view.itemId !== "c-nf-go" && view.itemId !== "c-nf-gws" && view.itemId !== "cc-sw-off" && view.itemId !== "cc-s-ps" && view.itemId !== "cc-hd-2" && view.itemId !== "cc-hd-3" 
           && view.itemId !== "cc-s-lan" && view.itemId !== "cc-s-win" &&  view.itemId !== "cc-sw-os" && view.itemId !== "cc-s-dc" 
           && view.itemId !== "cc-sw-adb" && view.itemId !== "cc-sw-gws" && view.itemId !== "cc-sw-sci" &&  view.itemId !== "cc-sw-inh" && view.itemId !== "cc-s-int"  && (
