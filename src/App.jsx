@@ -54,6 +54,7 @@ import {
 // Utility function to check if a URL is external to iith.ac.in
 const isExternalLink = (url) => {
   if (url.startsWith('mailto:')) return false;
+  if (url.startsWith('/') && !url.startsWith('//')) return false; // Treat root-relative paths as internal
   try {
     const urlObj = new URL(url.startsWith('http') ? url : `https://${url}`);
     return !urlObj.hostname.endsWith('iith.ac.in') && !urlObj.hostname.endsWith('localhost');
@@ -124,6 +125,7 @@ const App = () => {
           { id: 'cc-s-lan', title: 'LAN', label: 'Computer Centre : Service', topic: 'IT', content: 'Wired connectivity configuration for office and labs.', keywords: 'wired network wall jack dhcp ip address cable mac' },
           { id: 'cc-s-wifi', title: 'WiFi', label: 'Computer Centre : Service', topic: 'IT', content: 'Secure campus-wide wireless network access details.', keywords: 'wireless eduroam guest internet router password reset' },
           { id: 'cc-s-ldap', title: 'LDAP', label: 'Computer Centre : Service', topic: 'IT', content: 'Centralized authentication and Single Sign-On management.', keywords: 'single sign on sso credentials password reset aims disha authentication' },
+          { id: 'cc-s-vault', title: 'IITH VAULT (NAS)', label: 'Computer Centre : Service', topic: 'IT', content: 'Securely access and use the IITH VAULT (NAS) for centralized file storage, sync, and sharing.', keywords: 'nas vault storage files sharing synology sync backup ldap 2fa two-factor', link: '/vault.html' },
           { id: 'cc-s-vpn', title: 'VPN', label: 'Computer Centre : Tool', topic: 'IT', content: 'Instructions for off-campus access to institute journals.', keywords: 'wireguard remote access proxy gpu clusters library wire guard' },
           { id: 'cc-s-ms', title: 'Microsoft Office 365', label: 'Computer Centre : Tool', topic: 'IT', content: 'M365 account provisioning and cloud/desktop tools setup.', keywords: 'word excel powerpoint onedrive teams onenote sharepoint forms outlook publisher ms office' },
           { id: 'cc-s-win', title: 'Windows Activation', label: 'Computer Centre : Service', topic: 'IT', content: 'Institutional license activation service.', keywords: 'windows 10 windows 11 pro iso bootable usb rufus os operating system' },
