@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Microsoft365 from "./pages/Microsoft365";
+import GeminiTrainingPage from "./pages/GeminiTrainingPage";
 import VPNPage from "./pages/VPNPage";
 import LDAPPage from "./pages/LDAPPage";
 import WifiPage from "./pages/WifiPage";
@@ -170,18 +171,21 @@ const App = () => {
           { id: 'lib-resource-discovery-service', title: 'Resource Discovery Service', label: 'Library : E-Resources', topic: ['Research'], content: 'Search across all subscribed and open-access resources instantly.', link: 'https://iith.summon.serialssolutions.com/#!/' }
 
           // { id: 'lib-reference', title: 'Reference Managers', label: 'Library : Tool', topic: 'IT', content: 'Tools for organizing and managing research references and bibliographies.', link: 'https://library.iith.ac.in/reference-managers/' },
-          // { id: 'lib-scientific', title: 'Library Scientific Tools', label: 'Library : Tool', topic: 'IT', content: 'Specialized tools used for scientific research and analysis.', link: 'https://identity.iith.ac.in/' },
-          // { id: 'lib-citation', title: 'Citation Styles', label: 'Library : Tool', topic: 'IT', content: 'Guidelines and formats used for citing research papers and publications.', link: 'https://library.iith.ac.in/citation/' },
-          // { id: 'lib-subscribed', title: 'Subscribed E-Resources', label: 'Library : E-Resources', topic:  ['E-Resources'], content: 'Access subscribed electronic journals, databases, and digital resources.', link: 'https://catalogue.krc.iith.ac.in/pages.pl?p=er'},
-          // { id: 'lib-offcampus', title: 'Off-Campus Access to E-Resources', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Access library electronic resources from outside campus network.', link: 'https://library.iith.ac.in/' },
-          // { id: 'lib-openaccess', title: 'Open Access E-Resources', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Freely accessible scholarly articles, journals, and publications.', link: 'https://docs.google.com/document/d/e/2PACX-1vQvETh6wHRz6_QVCOhHSe75Exh45Ta_unKKeVY9QOvbmP53fakWFj0dDyPiCvNfr_8f8fTFNjKitcZ6/pub' },
-          // { id: 'lib-raiith', title: 'RAIITH (Institutional Repository)', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Digital repository containing research publications of IITH.', link: 'https://raiith.krc.iith.ac.in/home?tl.page=1' },
+          // { id: 'lib-scientific', title: 'Library Scientific Tools', label: 'Library : Tool', topic: 'IT', content: 'Specialized tools used for scientific research and analysis.', link: 'https://identity.iith.ac.in/' }
+          // { id: 'lib-citation', title: 'Citation Styles', label: 'Library : Tool', topic: 'IT', content: 'Guidelines and formats used for citing research papers and publications.', link: 'https://library.iith.ac.in/citation/' }
+          // { id: 'lib-subscribed', title: 'Subscribed E-Resources', label: 'Library : E-Resources', topic:  ['E-Resources'], content: 'Access subscribed electronic journals, databases, and digital resources.', link: 'https://catalogue.krc.iith.ac.in/pages.pl?p=er'}
+          // { id: 'lib-offcampus', title: 'Off-Campus Access to E-Resources', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Access library electronic resources from outside campus network.', link: 'https://library.iith.ac.in/' }
+          // { id: 'lib-openaccess', title: 'Open Access E-Resources', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Freely accessible scholarly articles, journals, and publications.', link: 'https://docs.google.com/document/d/e/2PACX-1vQvETh6wHRz6_QVCOhHSe75Exh45Ta_unKKeVY9QOvbmP53fakWFj0dDyPiCvNfr_8f8fTFNjKitcZ6/pub' }
+          // { id: 'lib-raiith', title: 'RAIITH (Institutional Repository)', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Digital repository containing research publications of IITH.', link: 'https://raiith.krc.iith.ac.in/home?tl.page=1' }
           // { id: 'lib-pragyaan', title: 'Pragyaan', label: 'Library : E-Resources', topic: ['E-Resources'], content: 'Library portal providing access to research and academic resources.', link: 'https://pragyaan.library.iith.ac.in/cgi-bin/koha/opac-search.pl?idx=&q=Entrepreneurial+Management&weight_search=1'}
         ]},
-        { label: "Support", icon: <ShieldCheck />, items: [
+        { label: "Support and Tutorials", icon: <ShieldCheck />, items: [
           { id: 'cc-sup-main', title: 'Computer Centre Helpdesk', label: 'Computer Centre : Helpdesk', content: 'Submit a ticket for request services or report technical issues.', keywords: 'ticket system support portal help' },
           { id: 'fa-sup-main', title: 'Finance & Accounts Helpdesk', label: 'Finance & Accounts: Helpdesk', content: 'For queries and support, email: office.accounts@iith.ac.in', link: 'mailto:office.accounts@iith.ac.in?', keywords: 'finance accounts email help' },
-          { id: 'lib-sup-main', title: 'Library Helpdesk', label: 'Library : Helpdesk', content: 'For queries and support, email: office.library@iith.ac.in', link: 'mailto:office.library@iith.ac.in?', keywords: 'library email help' }
+          { id: 'lib-sup-main', title: 'Library Helpdesk', label: 'Library : Helpdesk', content: 'For queries and support, email: office.library@iith.ac.in', link: 'mailto:office.library@iith.ac.in?', keywords: 'library email help' },
+          { id: 'tut-gemini', title: 'Gemini Training', label: 'Tutorial', topic: ['AI', 'IT'], content: 'A collection of official training videos and documentation for using Google Gemini.', link: 'https://drive.google.com/file/d/1x93mMNiXUizv6e09-Sr9QTXX_2GldM7k/view?usp=sharing', keywords: 'gemini ai google training video', type: 'tutorial' },
+          { id: 'tut-moodle', title: 'Moodle Training Session', label: 'Tutorial', topic: 'IT', content: 'Recorded training session on how to effectively use Moodle for courses.', link: 'https://drive.google.com/file/d/1ihP4GKW8Fnd_zBf6tr038F-stdJbRQph/view', keywords: 'moodle lms training video session', type: 'tutorial' },
+          { id: 'tut-cyber', title: 'Cybersecurity Best Practices', label: 'Tutorial', topic: 'IT', content: 'A video session covering essential cybersecurity practices for all IITH members.', link: '#', keywords: 'cybersecurity security video session awareness', type: 'tutorial' }
         ]},
         { label: "Policies & Guidelines", icon: <FileText />, items: [
           { id: 'c-nf-go', title: 'Google for Education', label:'Google : Guidelines', topic: ['IT', 'AI'],  content: 'Exploring New Google AI integration and workflow enhancements.', link: 'https://services.google.com/fh/files/misc/gfe_bett26_launch_guide.pdf', keywords: 'google education ai' },
@@ -921,6 +925,18 @@ const App = () => {
 
               </div>
 
+              {DATA[view.mainCat].subMenus.find(s => s.label === view.subCat).items.some(item => item.type !== 'tutorial') && (
+                <div className="col-span-1 md:col-span-2 lg:col-span-3">
+                  <h3 className="text-3xl font-serif font-bold text-[#4A3728] mb-8">Support</h3>
+                </div>
+              )}
+
+              {/* This div will now wrap only the support cards */}
+              <div className="grid grid-cols-1 md:col-span-2 lg:col-span-3">
+                {/* The grid for items will be applied inside this wrapper now */}
+              </div>
+
+              {/* Grid for Support Items */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {DATA[view.mainCat].subMenus
                   .find(s => s.label === view.subCat)
@@ -928,11 +944,13 @@ const App = () => {
                   .sort((a, b) => a.title.localeCompare(b.title))
                   .filter(item =>
                     (
-                      !searchTerm ||
-                      item.title.toLowerCase().includes(searchTerm) ||
-                      item.content.toLowerCase().includes(searchTerm) ||
-                      (item.keywords && item.keywords.toLowerCase().includes(searchTerm))
-                    ) &&
+                      item.type !== 'tutorial' && (
+                        !searchTerm ||
+                        item.title.toLowerCase().includes(searchTerm) ||
+                        item.content.toLowerCase().includes(searchTerm) ||
+                        (item.keywords && item.keywords.toLowerCase().includes(searchTerm))
+                      )
+                    ) &&  
                     (
                       !selectedFilter || item.title === selectedFilter
                     ) &&
@@ -978,7 +996,15 @@ const App = () => {
                       </span>
 
                       {item.label && (
-                        <span className="text-[10px] uppercase tracking-widest bg-[#FFEAE5] text-[#8B5E3C] px-3 py-1 rounded-md">
+                        <span
+                          className={`text-[10px] uppercase tracking-widest px-3 py-1 rounded-md ${
+                            item.label.startsWith('Library')
+                              ? 'bg-blue-100 text-blue-800'
+                              : item.label.startsWith('Finance & Accounts')
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-[#FFEAE5] text-[#8B5E3C]'
+                          }`}
+                        >
                           {item.label}
                         </span>
                       )}
@@ -1006,6 +1032,84 @@ const App = () => {
                   </div>
                   
                 ))}
+
+              </div>
+
+              {DATA[view.mainCat].subMenus.find(s => s.label === view.subCat).items.some(item => item.type === 'tutorial') && (
+                <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-8 pt-8 border-t-2 border-dashed border-orange-200">
+                  <h3 className="text-3xl font-serif font-bold text-[#4A3728] mb-8">Tutorials</h3>
+                </div>
+              )}
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Render tutorials separately */}
+                {DATA[view.mainCat].subMenus
+                  .find(s => s.label === view.subCat)
+                  .items
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .filter(item =>
+                    (
+                      item.type === 'tutorial' &&
+                      (!searchTerm ||
+                      item.title.toLowerCase().includes(searchTerm) ||
+                      item.content.toLowerCase().includes(searchTerm) ||
+                      (item.keywords && item.keywords.toLowerCase().includes(searchTerm))) &&
+                      (!selectedFilter || item.title === selectedFilter) &&
+                      (!selectedLetter || item.title.charAt(0).toUpperCase() === selectedLetter) &&
+                      (!selectedLabel || item.label === selectedLabel)
+                    )
+                  )
+                  .map((item, index) => (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        if (item.link) {
+                          if (isExternalLink(item.link)) {
+                            const confirmed = window.confirm(`You are about to leave iith domain and access an external link: ${item.link}. Do you want to continue?`);
+                            if (confirmed) {
+                              window.open(item.link, "_blank");
+                            }
+                          } else {
+                            window.open(item.link, "_blank");
+                          }
+                        } else {
+                          navigateTo('ItemDetail', view.mainCat, view.subCat, item.id);
+                        }
+                      }}
+                      className="cursor-pointer bg-white p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] border border-[#D4AF37] hover:shadow-[0_10px_30px_rgba(212,175,55,0.35)] transition-all group"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-6 h-6 bg-[#E5F0FF] text-blue-600 flex items-center justify-center rounded-xl">
+                          <BookOpen size={20} />
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">
+                          Tutorial
+                        </span>
+                        {item.label && (
+                          <span
+                            className={`text-[10px] uppercase tracking-widest px-3 py-1 rounded-md ${
+                              item.label.startsWith('Library')
+                                ? 'bg-blue-100 text-blue-800'
+                                : item.label.startsWith('Finance & Accounts')
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-[#FFEAE5] text-[#8B5E3C]'
+                            }`}
+                          >
+                            {item.label}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4 group-hover:text-[#D2691E]">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm line-clamp-2">
+                        {item.content}
+                      </p>
+                      <div className="mt-6 pt-6 border-t border-[#D4AF37] flex items-center gap-2 text-[10px] font-black text-[#8B5E3C] uppercase">
+                        WATCH TUTORIAL <ChevronRight size={14} />
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </main>
@@ -1370,7 +1474,7 @@ const App = () => {
             <p className="text-xs opacity-50 mt-2">ICT - Information and Communication Technology</p>
             <p className="text-xs opacity-50 mt-2">Indian Institute of Technology Hyderabad © 2026</p>
             <p className="text-xs opacity-40 mt-1">
-              Managed by Computer Centre, IITH
+              Developed and Maintained by Computer Centre, IITH
             </p>
           </div>
           <div className="flex gap-8 opacity-40">
