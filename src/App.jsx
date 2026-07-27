@@ -925,7 +925,7 @@ const App = () => {
 
               </div>
 
-              {DATA[view.mainCat].subMenus.find(s => s.label === view.subCat).items.some(item => item.type !== 'tutorial') && (
+              {view.subCat === 'Support and Tutorials' && DATA[view.mainCat].subMenus.find(s => s.label === view.subCat).items.some(item => item.type !== 'tutorial') && (
                 <div className="col-span-1 md:col-span-2 lg:col-span-3">
                   <h3 className="text-3xl font-serif font-bold text-[#4A3728] mb-8">Support</h3>
                 </div>
