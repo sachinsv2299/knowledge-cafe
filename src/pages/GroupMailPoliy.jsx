@@ -2,22 +2,14 @@ import React, { useState, useMemo } from "react";
 import { ArrowLeft, Search, ChevronUp, ChevronDown } from "lucide-react";
 
 const MAILING_LIST_DATA = [
+  { email: 'aac@iith.ac.in', members: 'Academic Advisory Committee members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
   { email: 'announcements@iith.ac.in', members: 'All group members in Institute', participation: 'Mandatory', receives: 'All Members in the Institute', posts: 'Only Functionaries' },
   { email: 'arc@iith.ac.in', members: 'Academic Review Committee', participation: '', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'aac@iith.ac.in', members: 'Academic Advisory Committee members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
   { email: 'assoc.prof@iith.ac.in', members: 'Associate Professor', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty office, Director office, Dean Faculty, BSM@ & Director' },
   { email: 'asst.prof@iith.ac.in', members: 'Assistant Professor', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty office, Director office, Dean Faculty, BSM@ & Director' },
-  { email: 'prof@iith.ac.in', members: 'Professors', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty office, Director office, Dean Faculty, BSM@ & Director' },
   { email: 'dcr@iith.ac.in', members: 'Department Corporate Relations Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
   { email: 'deans@iith.ac.in', members: 'Deans', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'faculty@iith.ac.in', members: 'All Faculty members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries & All Faculty members' },
-  { email: 'fic@iith.ac.in', members: 'All Faculty In-Charges', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'hods@iith.ac.in', members: 'All Department/Section Heads /Chairs', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'hos@iith.ac.in', members: 'All Heads of Sections', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
   { email: 'doctors@iith.ac.in', members: 'All Doctors', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'nurses@iith.ac.in', members: 'All Nurses', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
-  { email: 'projectstaff@iith.ac.in', members: 'All Institute Project Staff', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
-  { email: 'projectstaff_rd@iith.ac.in', members: 'All SRC Project Staff', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
   { email: 'faculty@ai.iith.ac.in', members: 'All Artifical Intelligence Faculty Members', participation: 'Mandatory', receives: 'All AI Department Faculty', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@bme.iith.ac.in', members: 'All Biomedical Engineering Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@bt.iith.ac.in', members: 'All Biotechnology Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
@@ -35,11 +27,19 @@ const MAILING_LIST_DATA = [
   { email: 'faculty@es.iith.ac.in', members: 'All Engineering Science Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@gss.iith.ac.in', members: 'All Greenko School of Sustainability Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@hst.iith.ac.in', members: 'All Heritage Science and Technology Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
+  { email: 'faculty@iith.ac.in', members: 'All Faculty members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries & All Faculty members' },
   { email: 'faculty@la.iith.ac.in', members: 'All Liberal Arts Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@mae.iith.ac.in', members: 'All Mechanical and Aerospace Engineering Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@math.iith.ac.in', members: 'All Mathematics Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@msme.iith.ac.in', members: 'All Materials Science and Metallurgical Engineering Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
   { email: 'faculty@phy.iith.ac.in', members: 'All Physics Faculty Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'ALL Department Faculty, Discourse only' },
+  { email: 'fic@iith.ac.in', members: 'All Faculty In-Charges', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
+  { email: 'hods@iith.ac.in', members: 'All Department/Section Heads /Chairs', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
+  { email: 'hos@iith.ac.in', members: 'All Heads of Sections', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
+  { email: 'nurses@iith.ac.in', members: 'All Nurses', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Orgraniazation' },
+  { email: 'prof@iith.ac.in', members: 'Professors', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty office, Director office, Dean Faculty, BSM@ & Director' },
+  { email: 'projectstaff@iith.ac.in', members: 'All Institute Project Staff', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
+  { email: 'projectstaff_rd@iith.ac.in', members: 'All SRC Project Staff', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
   { email: 'seminar@ai.iith.ac.in', members: 'Members of Respective Department Seminar Group', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty@ai.iith.ac.in, Discourse only' },
   { email: 'seminar@bme.iith.ac.in', members: 'Members of Respective Department Seminar Group', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty@bme.iith.ac.in, Discourse only' },
   { email: 'seminar@bt.iith.ac.in', members: 'Members of Respective Department Seminar Group', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Faculty@bt.iith.ac.in, Discourse only' },
@@ -63,10 +63,10 @@ const MAILING_LIST_DATA = [
   { email: 'senate.students@iith.ac.in', members: 'Senate Students Members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Organization' },
   { email: 'spgc@iith.ac.in', members: 'SPGC members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Members in the group' },
   { email: 'staff@iith.ac.in', members: 'All Regular Staff members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
+  { email: 'students@iith.ac.in', members: 'All Students', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
+  { email: 'students@iith.ac.in', members: 'All Students', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
   { email: 'sugc@iith.ac.in', members: 'SUGC members', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Members in the group' },
-  { email: 'wardens@iith.ac.in', members: 'All wardens', participation: 'Mandatory', receives: 'All Members in the group', posts: 'Anyone in the Organization' },
-  { email: 'Students@iith.ac.in', members: 'All Students', participation: 'Mandatory', receives: 'All Members in the group', posts: 'All Functionaries only' },
-];
+].sort((a, b) => a.email.localeCompare(b.email));
 
 const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -124,12 +124,12 @@ const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
               </thead>
               <tbody className="text-gray-600 text-sm">
                 {filteredData.map((item, index) => (
-                  <tr key={item.email} className="border-b border-gray-100 last:border-0 even:bg-blue-50/50 hover:bg-blue-100/70 transition-colors duration-200">
-                    <td className="p-4 align-top border-r border-gray-200 text-center font-medium text-gray-500">{index + 1}</td>
-                    <td className="p-4 align-top border-r border-gray-200 font-mono">{item.email}</td>
-                    <td className="p-4 align-top border-r border-gray-200">{item.members}</td>
-                    <td className="p-4 align-top border-r border-gray-200">{item.participation}</td>
-                    <td className="p-4 align-top border-r border-gray-200" dangerouslySetInnerHTML={{ __html: item.receives }} />
+                  <tr key={item.email} className="border-b border-gray-200 last:border-0 even:bg-blue-50/50 hover:bg-blue-100/70 transition-colors duration-200">
+                    <td className="p-4 align-top border-r border-gray-300 text-center font-medium text-gray-500">{index + 1}</td>
+                    <td className="p-4 align-top border-r border-gray-300 font-mono">{item.email}</td>
+                    <td className="p-4 align-top border-r border-gray-300">{item.members}</td>
+                    <td className="p-4 align-top border-r border-gray-300">{item.participation}</td>
+                    <td className="p-4 align-top border-r border-gray-300" dangerouslySetInnerHTML={{ __html: item.receives }} />
                     <td className="p-4 align-top">{item.posts}</td>
                   </tr>
                 ))}
