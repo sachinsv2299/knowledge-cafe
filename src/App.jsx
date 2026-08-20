@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Microsoft365 from "./pages/Microsoft365";
 import GeminiTrainingPage from "./pages/GeminiTrainingPage";
 import VPNPage from "./pages/VPNPage";
+import GroupMailPolicy from "./pages/GroupMailPoliy";
 import LDAPPage from "./pages/LDAPPage";
 import WifiPage from "./pages/WifiPage";
 import CyberSecurityPage from "./pages/CyberSecurityPage";
@@ -192,7 +193,7 @@ const App = () => {
           { id: 'c-nf-gws', title: 'Google Workspace', label: 'Google : Guidelines', topic: ['IT', 'AI'],  content: 'Google Workspace Learning Centre.', link: 'https://support.google.com/a/users?sjid=8024927221209100312-NC#topic=11499463', keywords: 'google workspace learning center' },
           { id: 'c-nf-stu', title: 'Google Workspace Studio', label: 'Google : Guidelines', topic: ['IT', 'AI'], content: 'Automate everyday work, from simple tasks to complex processes.', link: 'https://workspace.google.com/studio/?visit_id=639116712956745040-2031082170&p=workflow_access&rd=1', keywords: 'google ai automate workflow space studio workflow video creation' },
           { id: 'cc-hd-1', title: 'IITH Email Policy', label: 'Computer Centre : Policy', topic: 'IT', content: ' Institute Email Policy guidelines for creating/maintaining an email account.', link: 'https://docs.google.com/document/d/e/2PACX-1vQcpzfkK3PlQozgik6QSoM-pEYd19HqsurqOQqb_2mDJdE5nyXNVvRWFzSdI2nAnI03dWb219Pmugw9/pub', keywords: 'email policy account' },
-          { id: 'cc-hd-3', title: 'Group Mail Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for sending and managing emails through group mailing lists.', link: 'https://comp.iith.ac.in/group-mail-policy.html', keywords: 'group mail email policy' },
+          { id: 'cc-p-gp', title: 'Group Mail Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for sending and managing emails through group mailing lists.', keywords: 'group mail email policy' },
           { id: 'cc-hd-2', title: 'Computer Usage Guide', label: 'Computer Centre : Guidelines',  topic: 'IT', content: 'Best Practices for a Safe, Fast, and Organized Environment.', link : 'https://docs.google.com/presentation/d/1M8cdcg0lMSotkNtyaTHKwcNcHJLi53hDL85LS7-KCA4/edit?usp=sharing', keywords: 'computer usage safety speed organization' },
           { id: 'cc-p-vault', title: 'Vault Storage Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Policy on storage allocation, acceptable use, security, and backup for the IITH Vault (NAS).', keywords: 'nas vault storage allocation quota security backup policy acceptable use' },
           { id: 'cc-p-AUP', title: 'Acceptable Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for acceptable use of institute IT resources, systems, networks, and services.', keywords: 'it resources usage policy acceptable use network systems' },
@@ -807,8 +808,6 @@ const App = () => {
               <button 
                 onClick={goBack}
                 className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
-                className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
-                className="-mt-4 flex items-center gap-3 text-sm font-bold text-[#F28972] hover:text-[#D2691E] mb-12 transition-colors"
               >
                 <ArrowLeft size={18} /> BACK
               </button>
@@ -1201,6 +1200,10 @@ const App = () => {
           <Microsoft365 navigateTo={navigateTo} goBack={goBack} />
         )}
 
+        {view.page === 'ItemDetail' && view.itemId === "cc-p-gp" && (
+          <GroupMailPolicy navigateTo={navigateTo} goBack={goBack} />
+        )}
+
         {view.page === 'ItemDetail' && view.itemId === "cc-s-vpn" && (
           <VPNPage navigateTo={navigateTo} goBack={goBack} />
         )}
@@ -1272,15 +1275,13 @@ const App = () => {
         )}
 
 
-
-
         {view.page === 'ItemDetail' && view.itemId === "cc-s-dc" && (
           <DataCentre navigateTo={navigateTo} goBack={goBack} />
         )}
 
         {view.page === 'ItemDetail' && view.itemId !== "cc-s-ms" && view.itemId !== "cc-s-vpn" && view.itemId !== "cc-s-ldap" 
           && view.itemId !== "cc-s-wifi" && view.itemId !== "cc-p-AUP" && view.itemId !== "cc-p-vault" && view.itemId !== "cc-p-ISP" && view.itemId !== "cc-s-cyb" && view.itemId !== "cc-sup-main" && view.itemId !== "cc-s-dis" 
-          && view.itemId !== "c-nf-go" && view.itemId !== "c-nf-gws" && view.itemId !== "cc-sw-off" && view.itemId !== "cc-s-ps" && view.itemId !== "cc-hd-2" && view.itemId !== "cc-hd-3" 
+          && view.itemId !== "c-nf-go" && view.itemId !== "c-nf-gws" && view.itemId !== "cc-sw-off" && view.itemId !== "cc-s-ps" && view.itemId !== "cc-hd-2" && view.itemId !== "cc-p-gp" 
           && view.itemId !== "cc-s-lan" && view.itemId !== "cc-s-win" &&  view.itemId !== "cc-sw-os" && view.itemId !== "cc-s-dc" 
           && view.itemId !== "cc-sw-adb" && view.itemId !== "cc-sw-gws" && view.itemId !== "cc-sw-sci" &&  view.itemId !== "cc-sw-inh" && view.itemId !== "cc-s-int"  && (
 
