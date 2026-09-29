@@ -531,28 +531,24 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-[#4A3728] flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans text-[#4A3728] flex flex-col overflow-x-clip">
 
-      {/* HEADER */}
-      <header className="pt-6 pb-3 border-b border-[#D4AF37] px-9 w-full bg-white sticky top-0 z-40">        
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      {/* The Knowledge Cafe masthead is shown only on the landing page. */}
+      {view.page === 'Home' && (
+        <header className="pt-6 pb-3 border-b border-[#D4AF37] px-9 w-full bg-white sticky top-0 z-40">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="text-center flex-1">
+              <div className="cursor-pointer group inline-block" onClick={() => navigateTo('Home')}>
+                <BookOpen className="text-[#8B5E3C] w-14 h-14 md:w-20 md:h-20 transition-transform group-hover:scale-110" />
+              </div>
 
-          {/* LEFT TITLE */}
-          <div className="text-center flex-1">
-            <div className="cursor-pointer group inline-block" onClick={() => navigateTo('Home')}>
-              <BookOpen className="text-[#8B5E3C] w-14 h-14 md:w-20 md:h-20 transition-transform group-hover:scale-110" />
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#4A3728] mt-2 pb-4">
+                IITH ICT Knowledge Cafe
+              </h1>
             </div>
-
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#4A3728] mt-2 pb-4">
-              IITH ICT Knowledge Cafe
-            </h1>
-
-            {/* <p className="mt-3 italic text-[#A0522D]">
-              "Hot coffee fuels the mind. Fresh knowledge stirs the soul."
-            </p> */}
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
       {/* CONTENT TRANSITION WRAPPER */}
 

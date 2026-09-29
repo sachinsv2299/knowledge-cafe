@@ -169,7 +169,7 @@ const StorageUsageFacility = ({ goBack }) => {
 
             <ul className="space-y-3 text-gray-600 list-disc ml-6">
               <li>Daily snapshots retained up to 14 days.</li>
-              <li>Users should follow the 3-2-1 backup strategy.</li>
+              <li>Users should follow the 3-2-1 backup strategy. (Please refer to the 3-2-1 Backup Policy by <a href="https://docs.google.com/document/d/1YHjfIOu8_0SshwBHMXZgXofTSCXNWz2HtZyHwOULRMY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-orange-700 underline hover:text-orange-800">clicking here</a> for detailed guidelines.)</li>
               <li>Accounts are retained for 30 days after deactivation.</li>
               <li>Expired data may be permanently removed.</li>
             </ul>

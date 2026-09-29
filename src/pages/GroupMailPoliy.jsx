@@ -4,7 +4,7 @@ import { ArrowLeft, Search, ArrowUp } from "lucide-react";
 // Role-based lists — membership assigned by role/department, no action needed to join. (44 lists)
 const ROLE_BASED_DATA = [
   { email: "aac@iith.ac.in", members: "Academic Advisory Committee members", receives: "All Members in the group", posts: "Anyone in the Organization" },
-  { email: "announcements@iith.ac.in", members: "All group members in the Institute", receives: "All Members in the Institute", posts: "Only Functionaries (Director, Dean, Chair, HoD, HoS)" },
+  { email: "announcements@iith.ac.in", members: "All group members in the Institute", receives: "All Members in the Institute", posts: "Only Functionaries (Director, Dean, Chair, HoD, HoS, Office, Sections)" },
   { email: "arc@iith.ac.in", members: "Academic Review Committee", receives: "All Members in the group", posts: "Anyone in the Organization" },
   { email: "assoc.prof@iith.ac.in", members: "Associate Professor", receives: "All Members in the group", posts: "Faculty office, Director office, Dean Faculty, BSM & Director" },
   { email: "asst.prof@iith.ac.in", members: "Assistant Professor", receives: "All Members in the group", posts: "Faculty office, Director office, Dean Faculty, BSM & Director" },
@@ -132,7 +132,7 @@ const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
   const renderTable = (rows, memberColumnLabel) => (
     <div className="border border-[#E4DCD3] rounded-md bg-white -mx-4 px-0 overflow-x-auto md:mx-0 md:overflow-visible">
       <table className="w-full min-w-[720px] text-left border-collapse">
-        <thead className="sticky top-[202px] md:top-[238px] z-20 bg-[#F1EAE1] shadow-[0_1px_0_0_#CDC0B3]">
+        <thead className="sticky top-[49px] z-20 bg-[#F1EAE1] shadow-[0_1px_0_0_#CDC0B3]">
           <tr className="bg-[#F1EAE1] border-b border-[#CDC0B3]">
             <th className="p-3 pl-4 text-xs font-semibold uppercase tracking-wide text-[#6B5F59] whitespace-nowrap w-12 text-center">#</th>
             <th className="p-3 text-xs font-semibold uppercase tracking-wide text-[#6B5F59] whitespace-nowrap">Mailing List</th>
@@ -191,7 +191,7 @@ const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
         </div>
 
         {/* Section nav — sticky/frozen while scrolling, active section highlighted */}
-        <nav className="flex gap-4 md:gap-6 overflow-x-auto border-b border-[#E4DCD3] sticky top-[152px] md:top-[188px] bg-[#FAF8F5] z-30 -mx-4 px-4 md:mx-0 md:px-0">
+        <nav className="flex gap-4 md:gap-6 overflow-x-auto border-b border-[#E4DCD3] sticky top-0 bg-[#FAF8F5] z-30 -mx-4 px-4 md:mx-0 md:px-0">
           {SECTIONS.map((section) => (
             <button
               key={section.id}
@@ -227,7 +227,7 @@ const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
         </div>
 
         {/* Role-based section */}
-        <section id="role-based" ref={(el) => (sectionRefs.current["role-based"] = el)} className="scroll-mt-[202px] md:scroll-mt-[238px]">
+        <section id="role-based" ref={(el) => (sectionRefs.current["role-based"] = el)} className="scroll-mt-[49px]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4">
             <div>
               <h2 className="font-serif text-xl font-semibold text-[#241D1B]">
@@ -246,7 +246,7 @@ const GroupMailPolicyPage = ({ navigateTo, goBack }) => {
         <section
           id="interest-based"
           ref={(el) => (sectionRefs.current["interest-based"] = el)}
-          className="scroll-mt-[202px] md:scroll-mt-[238px] mt-14 pt-12 border-t border-[#E4DCD3]"
+          className="scroll-mt-[49px] mt-14 pt-12 border-t border-[#E4DCD3]"
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4">
             <div>
