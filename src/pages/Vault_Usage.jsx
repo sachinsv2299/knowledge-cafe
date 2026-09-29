@@ -238,7 +238,7 @@ const StorageUsageFacility = ({ goBack }) => {
         </section>
 
         {/* Supporting Documents */}
-        <section className="mb-10">
+        <section className="mt-10 mb-10">
           <h2 className="text-2xl font-bold text-[#8B5E3C] mb-4">
             Supporting Documents
           </h2>
