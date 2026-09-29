@@ -20,6 +20,7 @@ import GoogleWorkspace from './pages/GoogleWorkspace';
 import ISP from './pages/information_security_policy';
 import AUP from './pages/acceptable_usage_policy';
 import VaultUsage from './pages/Vault_Usage';
+import Backup321Policy from './pages/Backup321Policy';
 
 
 import { 
@@ -196,6 +197,7 @@ const App = () => {
           { id: 'cc-p-gp', title: 'Group Mail Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for sending and managing emails through group mailing lists.', keywords: 'group mail email policy' },
           { id: 'cc-hd-2', title: 'Computer Usage Guide', label: 'Computer Centre : Guidelines',  topic: 'IT', content: 'Best Practices for a Safe, Fast, and Organized Environment.', link : 'https://docs.google.com/presentation/d/1M8cdcg0lMSotkNtyaTHKwcNcHJLi53hDL85LS7-KCA4/edit?usp=sharing', keywords: 'computer usage safety speed organization' },
           { id: 'cc-p-vault', title: 'Vault Storage Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Policy on storage allocation, acceptable use, security, and backup for the IITH Vault (NAS).', keywords: 'nas vault storage allocation quota security backup policy acceptable use' },
+          { id: 'cc-p-backup321', title: '3-2-1 Backup Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for maintaining multiple, diverse, and geographically separated data backups.', keywords: '3-2-1 321 backup data protection recovery off-site storage ransomware' },
           { id: 'cc-p-AUP', title: 'Acceptable Usage Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Guidelines for acceptable use of institute IT resources, systems, networks, and services.', keywords: 'it resources usage policy acceptable use network systems' },
           { id: 'cc-p-ISP', title: 'Information Security Policy', label: 'Computer Centre : Policy', topic: 'IT', content: 'Policy outlining information security practices, data protection, and security responsibilities.', keywords: 'information security policy data protection cybersecurity' },
 
@@ -1226,6 +1228,10 @@ const App = () => {
 
            {view.page === 'ItemDetail' && view.itemId === "cc-p-vault" && (
           <VaultUsage navigateTo={navigateTo} goBack={goBack} />
+        )}
+
+        {view.page === 'ItemDetail' && view.itemId === "cc-p-backup321" && (
+          <Backup321Policy navigateTo={navigateTo} goBack={goBack} />
         )}
 
          {view.page === 'ItemDetail' && view.itemId === "cc-p-ISP" && (
