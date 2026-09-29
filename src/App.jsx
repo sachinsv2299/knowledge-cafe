@@ -1281,7 +1281,7 @@ const App = () => {
           <DataCentre navigateTo={navigateTo} goBack={goBack} />
         )}
 
-        {view.page === 'ItemDetail' && view.itemId !== "cc-s-ms" && view.itemId !== "cc-s-vpn" && view.itemId !== "cc-s-ldap" 
+        {view.page === 'ItemDetail' && view.itemId !== "cc-p-backup321" && view.itemId !== "cc-s-ms" && view.itemId !== "cc-s-vpn" && view.itemId !== "cc-s-ldap" 
           && view.itemId !== "cc-s-wifi" && view.itemId !== "cc-p-AUP" && view.itemId !== "cc-p-vault" && view.itemId !== "cc-p-ISP" && view.itemId !== "cc-s-cyb" && view.itemId !== "cc-sup-main" && view.itemId !== "cc-s-dis" 
           && view.itemId !== "c-nf-go" && view.itemId !== "c-nf-gws" && view.itemId !== "cc-sw-off" && view.itemId !== "cc-s-ps" && view.itemId !== "cc-hd-2" && view.itemId !== "cc-p-gp" 
           && view.itemId !== "cc-s-lan" && view.itemId !== "cc-s-win" &&  view.itemId !== "cc-sw-os" && view.itemId !== "cc-s-dc" 
