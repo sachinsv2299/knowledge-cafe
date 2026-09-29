@@ -237,6 +237,49 @@ const StorageUsageFacility = ({ goBack }) => {
           </p>
         </section>
 
+        {/* Supporting Documents */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold text-[#8B5E3C] mb-4">
+            Supporting Documents
+          </h2>
+
+          <p className="text-gray-600 mb-6">
+            Refer to these policies for guidance on Vault usage and IT security.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a
+              href="https://knowledgecafe.comp.iith.ac.in/vault.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[#E6D3A3] rounded-xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#D97706] hover:shadow-sm transition-all"
+            >
+              <HardDrive className="w-8 h-8 text-[#D97706]" />
+              <span className="font-bold text-[#4A3728]">IITH Vault(NAS) Guideline</span>
+            </a>
+
+            <a
+              href="https://knowledgecafe.comp.iith.ac.in/cc-p-AUP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[#E6D3A3] rounded-xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#D97706] hover:shadow-sm transition-all"
+            >
+              <Database className="w-8 h-8 text-[#8B5E3C]" />
+              <span className="font-bold text-[#4A3728]">Acceptable Usage Policy</span>
+            </a>
+
+            <a
+              href="https://knowledgecafe.comp.iith.ac.in/cc-p-ISP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[#E6D3A3] rounded-xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#D97706] hover:shadow-sm transition-all"
+            >
+              <ShieldCheck className="w-8 h-8 text-[#8B5E3C]" />
+              <span className="font-bold text-[#4A3728]">Information Security Policy</span>
+            </a>
+          </div>
+        </section>
+
       </div>
     </main>
   );
