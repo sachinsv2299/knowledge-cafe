@@ -82,6 +82,10 @@ const StorageUsageFacility = ({ goBack }) => {
                   <td className="p-4">PG & PhD Students</td>
                   <td className="p-4 font-semibold">10 GB</td>
                 </tr>
+                <tr className="border-t">
+                  <td className="p-4">Staff</td>
+                  <td className="p-4 font-semibold">10 GB</td>
+                </tr>
               </tbody>
             </table>
           </div>
