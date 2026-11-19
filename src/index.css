@@ -86,3 +86,17 @@ aside::-webkit-scrollbar-thumb:hover {
     background-position: 200% 0;
   }
 }
+/* ===== HOME BACKDROP + FOOTER WAVES ===== */
+@keyframes kc-drift-a { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(18px, 12px) rotate(1.2deg); } }
+@keyframes kc-drift-b { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-22px, -10px) rotate(-1.5deg); } }
+@keyframes kc-drift-c { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-30px); } }
+@keyframes kc-wave-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.kc-drift-a { animation: kc-drift-a 16s ease-in-out infinite; transform-origin: 0 0; }
+.kc-drift-b { animation: kc-drift-b 19s ease-in-out infinite; transform-origin: 100% 50%; }
+.kc-drift-c { animation: kc-drift-c 22s ease-in-out infinite; }
+.kc-wave-back { animation: kc-wave-slide 18s linear infinite reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kc-drift-a, .kc-drift-b, .kc-drift-c, .kc-wave-back { animation: none; }
+}

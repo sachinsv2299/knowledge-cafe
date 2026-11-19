@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IITH ICT Knowledge Cafe — Modern gold concept</title>
+<style>
+  :root {
+    --bg: #fdfaf3;
+    --bg-2: #fbf4e4;
+    --text: #3b2a1e;
+    --muted: #8a7563;
+    --gold: #d4af37;
+    --gold-soft: #e6c76b;
+    --gold-pale: #f6e8bf;
+    --copper: #d2691e;
+    --brown: #8b5e3c;
+    --cocoa: #4a3728;
+    --radius-xl: 32px;
+    --radius-lg: 24px;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  body { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+  /* ---------- Background: warm glow + flowing gold lines ---------- */
+  .waves {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(55% 45% at 12% 8%, rgba(230, 199, 107, 0.28), transparent 70%),
+      radial-gradient(45% 40% at 92% 20%, rgba(242, 137, 114, 0.14), transparent 70%),
+      radial-gradient(70% 55% at 50% 110%, rgba(212, 175, 55, 0.18), transparent 70%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  }
+  .waves svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: relative; z-index: 2;
+    background: rgba(253, 250, 243, 0.6);
+    backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px);
+  }
+  header::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-soft) 50%, var(--gold) 80%, transparent);
+    opacity: .7;
+  }
+  .brand {
+    max-width: 1080px; margin: 0 auto; padding: 30px 16px 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
+  }
+  .brand-icon {
+    width: 66px; height: 66px; border-radius: 20px; display: grid; place-items: center; color: var(--brown);
+    background: linear-gradient(150deg, #fffdf7, #f8edd0);
+    border: 1px solid var(--gold-soft);
+    box-shadow: 0 10px 30px -8px rgba(212, 175, 55, .45), inset 0 1px 0 #fff;
+  }
+  .brand-icon svg { width: 34px; height: 34px; }
+  .brand h1 {
+    font-size: clamp(30px, 5.2vw, 56px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; padding-bottom: .06em;
+    background: linear-gradient(100deg, var(--cocoa) 0%, var(--brown) 45%, #b8862f 60%, var(--cocoa) 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: sheen 9s ease-in-out infinite;
+  }
+  @keyframes sheen { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+  /* ---------- Main panel ---------- */
+  main { position: relative; z-index: 1; flex: 1; padding: clamp(40px, 8vw, 96px) 16px clamp(72px, 10vw, 128px); }
+  .panel {
+    position: relative; max-width: 1080px; margin: 0 auto;
+    padding: clamp(28px, 5vw, 64px);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 252, 244, 0.62);
+    backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 30px 70px -25px rgba(139, 94, 60, .35), 0 0 0 6px rgba(230, 199, 107, .12), inset 0 1px 0 rgba(255,255,255,.9);
+  }
+  .panel h2 {
+    font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.03em; color: var(--brown);
+  }
+  .panel .sub {
+    margin-top: 10px; font-size: clamp(12px, 1.3vw, 14px); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+  .rule {
+    margin: 26px 0 38px; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--brown), var(--gold) 55%, rgba(212,175,55,0));
+  }
+
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    position: relative; display: flex; flex-direction: column; gap: 18px;
+    padding: 26px; border-radius: var(--radius-lg); text-decoration: none; color: inherit;
+    background: linear-gradient(180deg, #fffefb, #fdf8ec);
+    border: 1px solid var(--gold-soft);
+    box-shadow: 0 1px 0 #fff inset, 0 10px 26px -14px rgba(139, 94, 60, .35);
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s cubic-bezier(.2,.8,.2,1), border-color .5s;
+    overflow: hidden; isolation: isolate;
+  }
+  /* light sweep on hover */
+  .card::after {
+    content: ""; position: absolute; top: 0; left: -60%; width: 50%; height: 100%; z-index: -1;
+    background: linear-gradient(100deg, transparent, rgba(230, 199, 107, .28), transparent);
+    transform: skewX(-18deg); transition: left .8s cubic-bezier(.2,.8,.2,1);
+  }
+  .card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 1px 0 #fff inset, 0 26px 48px -18px rgba(139, 94, 60, .5), 0 0 0 4px rgba(230, 199, 107, .18); }
+  .card:hover::after { left: 120%; }
+  .card-top { display: flex; align-items: center; justify-content: space-between; }
+  .icon {
+    width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; color: #fff;
+    background: linear-gradient(150deg, #e2bf55, var(--gold) 45%, #b8862f);
+    box-shadow: 0 8px 18px -6px rgba(184, 134, 47, .7), inset 0 1px 0 rgba(255,255,255,.45);
+  }
+  .icon svg { width: 24px; height: 24px; }
+  .count {
+    font-size: 12px; font-weight: 700; color: var(--brown);
+    background: #fde7dc; border: 1px solid #f8cdb9; border-radius: 999px; padding: 5px 12px;
+  }
+  .card h3 { font-size: 22px; font-weight: 650; letter-spacing: -0.02em; color: var(--cocoa); }
+  .open {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--copper);
+  }
+  .open svg { width: 15px; height: 15px; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+  .card:hover .open svg { transform: translateX(5px); }
+  @media (max-width: 480px) { .open { letter-spacing: .03em; white-space: nowrap; } }
+
+  /* ---------- Footer: warm gold → caramel, matching waves ---------- */
+  footer { position: relative; z-index: 1; color: #fffaf0; }
+  .footer-waves { position: relative; height: 130px; overflow: hidden; }
+  .footer-waves svg { position: absolute; bottom: -1px; left: 0; width: 200%; height: 100%; }
+  .fw1 { animation: drift 24s linear infinite; }
+  .fw2 { animation: drift 16s linear infinite reverse; }
+  .fw3 { animation: drift 32s linear infinite; }
+  .fw-line { animation: drift 20s linear infinite reverse; }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .footer-body {
+    margin-top: -1px; padding: 30px 16px 48px;
+    background: linear-gradient(180deg, #b07d3a 0%, #9a6a3d 45%, #8b5e3c 100%);
+  }
+  .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+  .footer-brand { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 650; letter-spacing: .02em; }
+  .footer-brand svg { width: 26px; height: 26px; color: #ffe6a3; }
+  .footer-inner p { font-size: 13px; color: rgba(255, 246, 228, .82); line-height: 1.6; }
+  .footer-line { height: 1px; background: linear-gradient(90deg, rgba(255, 230, 163, .6), rgba(255, 230, 163, 0)); margin: 10px 0 6px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fw1, .fw2, .fw3, .fw-line, .brand h1 { animation: none; }
+    .card, .card::after, .open svg { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="waves" aria-hidden="true">
+    <svg id="waveLines" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#d4af37" stop-opacity="0" />
+          <stop offset=".2" stop-color="#d4af37" stop-opacity=".9" />
+          <stop offset=".5" stop-color="#e6a04a" stop-opacity=".85" />
+          <stop offset=".8" stop-color="#d2691e" stop-opacity=".7" />
+          <stop offset="1" stop-color="#d2691e" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <g id="lines" fill="none" stroke="url(#lineGrad)"></g>
+    </svg>
+  </div>
+
+  <header>
+    <div class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+        </svg>
+      </div>
+      <h1>IITH ICT Knowledge Cafe</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>IITH ICT MENU</h2>
+      <p class="sub">Central Hub for Tools, Services, Support, Guidelines &amp; Policies</p>
+      <div class="rule"></div>
+
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="card-top">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <span class="count">42 Items</span>
+          </div>
+          <h3>Tools &amp; Services</h3>
+          <span class="open">Open Tools &amp; Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </a>
+
+        <a class="card" href="#">
+          <div class="card-top">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.520 0C14.51 3.810 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <span class="count">6 Items</span>
+          </div>
+          <h3>Support and Tutorials</h3>
+          <span class="open">Open Support and Tutorials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </a>
+
+        <a class="card" href="#">
+          <div class="card-top">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </span>
+            <span class="count">16 Items</span>
+          </div>
+          <h3>Policies &amp; Guidelines</h3>
+          <span class="open">Open Policies &amp; Guidelines <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-waves" aria-hidden="true">
+      <svg class="fw3" viewBox="0 0 2880 130" preserveAspectRatio="none"><path fill="#e6c76b" fill-opacity=".35" d="M0 70 C 240 30, 480 30, 720 70 S 1200 110, 1440 70 S 1920 30, 2160 70 S 2640 110, 2880 70 V131 H0 Z"/></svg>
+      <svg class="fw2" viewBox="0 0 2880 130" preserveAspectRatio="none"><path fill="#d4af37" fill-opacity=".45" d="M0 84 C 180 54, 540 114, 720 84 S 1260 54, 1440 84 S 1980 114, 2160 84 S 2700 54, 2880 84 V131 H0 Z"/></svg>
+      <svg class="fw-line" viewBox="0 0 2880 130" preserveAspectRatio="none"><path fill="none" stroke="#fff3cf" stroke-opacity=".8" stroke-width="2" d="M0 92 C 240 70, 480 70, 720 92 S 1200 114, 1440 92 S 1920 70, 2160 92 S 2640 114, 2880 92"/></svg>
+      <svg class="fw1" viewBox="0 0 2880 130" preserveAspectRatio="none"><path fill="#b07d3a" d="M0 100 C 240 74, 480 74, 720 100 S 1200 126, 1440 100 S 1920 74, 2160 100 S 2640 126, 2880 100 V131 H0 Z"/></svg>
+    </div>
+    <div class="footer-body">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+          </svg>
+          IITH ICT Knowledge Cafe
+        </div>
+        <p>ICT - Information and Communication Technology</p>
+        <div class="footer-line"></div>
+        <p>Indian Institute of Technology Hyderabad © 2026<br />Developed and Maintained by Computer Centre, IITH</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Flowing gold wave lines
+  (function () {
+    const svg = document.getElementById("waveLines");
+    const group = document.getElementById("lines");
+    const LINES = 24, POINTS = 96;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const paths = [];
+    for (let i = 0; i < LINES; i++) {
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("stroke-width", i % 6 === 0 ? 1.8 : 1);
+      p.setAttribute("stroke-opacity", (0.3 + 0.7 * Math.sin((i / LINES) * Math.PI)).toFixed(2));
+      group.appendChild(p);
+      paths.push(p);
+    }
+    let w = 0, h = 0;
+    const resize = () => { w = svg.clientWidth; h = svg.clientHeight; svg.setAttribute("viewBox", `0 0 ${w} ${h}`); };
+    window.addEventListener("resize", resize);
+    resize();
+
+    const draw = (t) => {
+      const time = t / 1000;
+      const baseY = h * 0.5, spread = Math.min(h * 0.45, 400);
+      for (let i = 0; i < LINES; i++) {
+        const k = i / (LINES - 1);
+        const offset = (k - 0.5) * spread;
+        let d = "";
+        for (let j = 0; j <= POINTS; j++) {
+          const u = j / POINTS, x = u * w;
+          const y = baseY + offset * (0.55 + 0.45 * Math.sin(u * Math.PI * 1.1 + time * 0.28))
+            + Math.sin(u * 5.6 + time * 0.5 + k * 1.7) * 50
+            + Math.sin(u * 2.2 - time * 0.32 + k * 2.2) * 72
+            - Math.cos(u * 10 + time * 0.7) * 6 * (1 - k);
+          d += (j ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+        }
+        paths[i].setAttribute("d", d);
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    };
+    requestAnimationFrame(draw);
+  })();
+</script>
+</body>
+</html>

@@ -369,12 +369,23 @@ const ClaudePage = ({ navigateTo, goBack }) => {
               >
                 Open Claude <ArrowRight size={18} />
               </a>
-              <a
-                href="#claude-faq"
+              {/* Scroll instead of href="#…" — the app treats URL hashes as routes */}
+              <button
+                type="button"
+                onClick={() => {
+                  const faq = document.getElementById("claude-faq");
+                  if (!faq) return;
+                  const startY = window.scrollY;
+                  faq.scrollIntoView({ behavior: "smooth", block: "start" });
+                  // Jump directly if smooth scrolling is unsupported or blocked
+                  setTimeout(() => {
+                    if (window.scrollY === startY) faq.scrollIntoView({ block: "start" });
+                  }, 400);
+                }}
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 ring-1 ring-white/30 font-semibold px-5 py-3 hover:bg-white/20 transition"
               >
                 Read the FAQ
-              </a>
+              </button>
             </div>
           </div>
 

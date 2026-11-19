@@ -22,6 +22,8 @@ import AUP from './pages/acceptable_usage_policy';
 import VaultUsage from './pages/Vault_Usage';
 import Backup321Policy from './pages/Backup321Policy';
 import ClaudePage from './pages/ClaudePage';
+import HomeBackdrop from './components/HomeBackdrop';
+import SiteFooter from './components/SiteFooter';
 
 
 import { 
@@ -403,6 +405,14 @@ const App = () => {
   const [selectedLetter, setSelectedLetter] = useState("");
   const [selectedLabel, setSelectedLabel] = useState("");
 
+  // Home page card tints (reference: soft peach / blue / lavender)
+  const HOME_CARD_THEMES = {
+    "Tools & Services": { tint: "to-[#FCE6D2]", glow: "from-[#F7C59A]", icon: "text-[#B5652C]", chip: "bg-[#FBE3CF] text-[#9A5320]" },
+    "Support and Tutorials": { tint: "to-[#DDEBFD]", glow: "from-[#9CC7F7]", icon: "text-[#1F5FAE]", chip: "bg-[#DCEAFB] text-[#1F5FAE]" },
+    "Policies & Guidelines": { tint: "to-[#ECE3FC]", glow: "from-[#C9B2F4]", icon: "text-[#6B46C1]", chip: "bg-[#ECE3FB] text-[#5B3AA8]" },
+  };
+  const DEFAULT_CARD_THEME = HOME_CARD_THEMES["Tools & Services"];
+
   // Unified Navigation Handler
   const navigateTo = (page, mainCat = null, subCat = null, itemId = null) => {
     const newState = { page, mainCat, subCat, itemId };
@@ -544,28 +554,30 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-[#4A3728] flex flex-col overflow-x-clip">
+    <div className={`relative isolate min-h-screen font-sans text-[#4A3728] flex flex-col overflow-x-clip ${view.page === 'Home' ? 'bg-[#F4F4F7]' : 'bg-[#FDFBF7]'}`}>
+
+      {view.page === 'Home' && <HomeBackdrop />}
 
       {/* The Knowledge Cafe masthead is shown only on the landing page. */}
       {view.page === 'Home' && (
-        <header className="pt-6 pb-3 border-b border-[#D4AF37] px-9 w-full bg-white sticky top-0 z-40">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="text-center flex-1">
-              <div className="cursor-pointer group inline-block" onClick={() => navigateTo('Home')}>
-                <BookOpen className="text-[#8B5E3C] w-14 h-14 md:w-20 md:h-20 transition-transform group-hover:scale-110" />
-              </div>
-
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#4A3728] mt-2 pb-4">
-                IITH ICT Knowledge Cafe
-              </h1>
+        <header className="relative z-10 pt-8 md:pt-12 pb-2 px-6 w-full">
+          <div className="max-w-7xl mx-auto text-center">
+            <div className="cursor-pointer group inline-block" onClick={() => navigateTo('Home')}>
+              <BookOpen strokeWidth={2.2} className="text-[#B5652C] w-14 h-14 md:w-20 md:h-20 transition-transform duration-500 group-hover:scale-110" />
             </div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-[#1F2128] mt-2 md:mt-3">
+              IITH ICT Knowledge Cafe
+            </h1>
+
+            <div className="mx-auto mt-5 md:mt-6 h-1.5 w-28 md:w-36 rounded-full bg-gradient-to-r from-[#E9A66F] via-[#D98A4E] to-[#E9A66F]" />
           </div>
         </header>
       )}
 
       {/* CONTENT TRANSITION WRAPPER */}
 
-      <div className={`flex-1 transition-all duration-300 transform ${animationClass} w-full`}>
+      <div className={`relative z-10 flex-1 transition-all duration-300 transform ${animationClass} w-full`}>
 
         {/* HOME VIEW */}
         {view.page === 'Home' && (
@@ -589,21 +601,25 @@ const App = () => {
 
                 {/* COMPUTER CENTRE SECTION */}
 
-                <section className="p-4 lg:ml-12 lg:mr-12 md:py-10 md:px-12 lg:px-20 xl:px-24 bg-[#FFFAF0] border border-[#D4AF37] rounded-3xl shadow-sm mb-10 mt-10">
+                <section className="p-5 sm:p-8 lg:mx-12 md:py-12 md:px-12 lg:px-14 xl:px-16 bg-white/55 backdrop-blur-xl border border-white/80 rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(31,33,40,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] mb-6 md:mb-10 mt-6 md:mt-10">
 
-                  <div className="mb-12 border-b-4 border-[#8B5E3C] pb-4 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
 
-                    <div>
-                      <h2 className="text-lg sm:text-2xl text-[#8B5E3C] font-bold uppercase">
+                    <div className="w-full">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1F2128] font-bold uppercase tracking-tight">
                         {DATA.computerCentre.title}
                       </h2>
 
-                      <p className="text-xs font-bold opacity-50 mt-1 uppercase ">
+                      <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-[#5B5F6B] mt-2 uppercase tracking-[0.18em]">
 
 
                       {/*<p className="text-[10px] font-bold sm:text-xs text-gray-400 mt-1 uppercase tracking-widest">*/}
                         {DATA.computerCentre.description}
                       </p>
+
+                      <div className="relative mt-5 h-1 w-full rounded-full bg-gradient-to-r from-[#E4E5EA] via-[#ECEDF1] to-transparent">
+                        <span className="absolute inset-y-0 left-0 w-24 md:w-28 rounded-full bg-gradient-to-r from-[#C8743A] to-[#E9A66F]" />
+                      </div>
                     </div>
 
                     {/* <a
@@ -618,7 +634,7 @@ const App = () => {
                   </div>
 
                   {/* COMPUTER GRID */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
 
                     {DATA.computerCentre.subMenus
                       .filter(sub =>
@@ -647,29 +663,32 @@ const App = () => {
                               (item.keywords && item.keywords.toLowerCase().includes(searchTerm)))
                         ).length || 0;
 
+                        const theme = HOME_CARD_THEMES[sub.label] || DEFAULT_CARD_THEME;
+
                         return (
                         <div
                           key={idx}
                           onClick={() => navigateTo('SubMenu', 'computerCentre', sub.label)}
-                          className="relative cursor-pointer group bg-[#FDFBF7] p-6 md:p-8 rounded-3xl border border-[#E6C76B] overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(212,175,55,0.35)]"
-
+                          className={`relative cursor-pointer group isolate overflow-hidden p-6 md:p-7 rounded-3xl border border-[#E6C76B] bg-gradient-to-br from-white via-white/95 ${theme.tint} shadow-[0_12px_30px_-18px_rgba(31,33,40,0.35),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-[#D4AF37] hover:shadow-[0_24px_48px_-20px_rgba(212,175,55,0.55),inset_0_1px_0_rgba(255,255,255,0.9)]`}
                         >
+                          {/* soft corner glow */}
+                          <div aria-hidden="true" className={`pointer-events-none absolute -bottom-16 -right-16 -z-10 h-44 w-44 rounded-full bg-gradient-to-tl ${theme.glow} to-transparent opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-100`} />
 
                           <div className="flex justify-between items-start mb-6">
-                            <div className="w-14 h-10 rounded-2xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-sm group-hover:bg-[#8B5E3C] group-hover:text-white transition-all">
-                              {React.cloneElement(sub.icon, { size: 24 })}
+                            <div className={`w-14 h-14 rounded-2xl bg-white flex items-center justify-center ${theme.icon} shadow-[0_6px_16px_-6px_rgba(31,33,40,0.25)] ring-1 ring-black/5 transition-transform duration-500 group-hover:scale-105`}>
+                              {React.cloneElement(sub.icon, { size: 28, strokeWidth: 1.9 })}
                             </div>
-                            <div className="px-3 h-7 rounded-full bg-[#FFEAE5] text-[#8B5E3C] text-xs font-bold flex items-center justify-center group-hover:bg-[#8B5E3C] group-hover:text-white transition-colors" title={`${activeCount} active items`}>
+                            <div className={`px-3.5 h-8 rounded-full ${theme.chip} text-xs sm:text-sm font-semibold flex items-center justify-center`} title={`${activeCount} active items`}>
                               {activeCount} {activeCount === 1 ? 'Item' : 'Items'}
                             </div>
                           </div>
 
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-[#D2691E]">
+                          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#1F2128] mb-2">
                             {sub.label}
                           </h3>
 
-                          <p className="text-[10px] font-black uppercase text-[#8B5E3C] mt-4 flex items-center gap-1">
-                            Open {sub.label} <ChevronRight size={12}/>
+                          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.06em] text-[#5B5F6B] mt-3 flex items-center gap-1.5 transition-colors group-hover:text-[#B5652C]">
+                            Open {sub.label} <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                           </p>
 
                         </div>
@@ -1482,31 +1501,8 @@ const App = () => {
 
 
 
-      {/* FOOTER */}
-      <footer className="bg-[#4A3728] text-white py-16 px-10 mt-auto">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <span className="text-2xl font-bold tracking-widest flex items-center justify-center md:justify-start gap-3">
-              <BookOpen size={32} className="text-[#D2691E]" /> IITH ICT Knowledge Cafe
-            </span>
-            <p className="text-xs opacity-50 mt-2">ICT - Information and Communication Technology</p>
-            <p className="text-xs opacity-50 mt-2">Indian Institute of Technology Hyderabad © 2026</p>
-            <p className="text-xs opacity-40 mt-1">
-              Developed and Maintained by Computer Centre, IITH
-            </p>
-          </div>
-          <div className="flex gap-8 opacity-40">
-            {/*<ThumbsUp className="cursor-pointer hover:opacity-100" />*/}
-            {/* <a 
-              href="mailto:cc_knowledge@iith.ac.in"
-              className="cursor-pointer hover:opacity-100"
-            >
-              <Send />
-            </a> */}
-            {/*<MessageSquare className="cursor-pointer hover:opacity-100" />*/}
-          </div>
-        </div>
-      </footer>
+      {/* FOOTER (all pages) */}
+      <SiteFooter />
     </div>
   );
 };
