@@ -577,11 +577,11 @@ const App = () => {
 
       {/* CONTENT TRANSITION WRAPPER */}
 
-      <div className={`relative z-10 flex-1 transition-all duration-300 transform ${animationClass} w-full`}>
+      <div className={`relative z-10 flex-1 transition-all duration-300 transform ${animationClass} w-full ${view.page === 'Home' ? 'flex flex-col' : ''}`}>
 
         {/* HOME VIEW */}
         {view.page === 'Home' && (
-          <main className="relative">
+          <main className="relative flex-1 flex flex-col justify-center">
 
             {/* MOBILE TOPIC BUTTON */}
             {/*
@@ -593,7 +593,7 @@ const App = () => {
             </button>
             */}
 
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 px-4 pb-2">
+            <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 px-4 pb-2">
 
               {/* MAIN CONTENT */}
               <div className="flex-1">
