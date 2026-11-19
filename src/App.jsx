@@ -560,17 +560,17 @@ const App = () => {
 
       {/* The Knowledge Cafe masthead is shown only on the landing page. */}
       {view.page === 'Home' && (
-        <header className="relative z-10 pt-8 md:pt-12 pb-2 px-6 w-full">
+        <header className="relative z-10 pt-4 md:pt-5 pb-1 px-6 w-full">
           <div className="max-w-7xl mx-auto text-center">
             <div className="cursor-pointer group inline-block" onClick={() => navigateTo('Home')}>
-              <BookOpen strokeWidth={2.2} className="text-[#B5652C] w-14 h-14 md:w-20 md:h-20 transition-transform duration-500 group-hover:scale-110" />
+              <BookOpen strokeWidth={2.2} className="text-[#B5652C] w-11 h-11 md:w-12 md:h-12 transition-transform duration-500 group-hover:scale-110" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-[#1F2128] mt-2 md:mt-3">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-[#1F2128] mt-1.5">
               IITH ICT Knowledge Cafe
             </h1>
 
-            <div className="mx-auto mt-5 md:mt-6 h-1.5 w-28 md:w-36 rounded-full bg-gradient-to-r from-[#E9A66F] via-[#D98A4E] to-[#E9A66F]" />
+            <div className="mx-auto mt-3 h-1 w-24 md:w-28 rounded-full bg-gradient-to-r from-[#E9A66F] via-[#D98A4E] to-[#E9A66F]" />
           </div>
         </header>
       )}
@@ -593,7 +593,7 @@ const App = () => {
             </button>
             */}
 
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 px-4 pb-8 md:pb-10">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 px-4 pb-2">
 
               {/* MAIN CONTENT */}
               <div className="flex-1">
@@ -601,23 +601,23 @@ const App = () => {
 
                 {/* COMPUTER CENTRE SECTION */}
 
-                <section className="p-5 sm:p-8 lg:mx-12 md:py-12 md:px-12 lg:px-14 xl:px-16 bg-white/55 backdrop-blur-xl border border-white/80 rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(31,33,40,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] mb-6 md:mb-10 mt-6 md:mt-10">
+                <section className="p-5 sm:p-7 lg:mx-12 md:py-7 md:px-10 lg:px-12 xl:px-14 bg-white/55 backdrop-blur-xl border border-white/80 rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(31,33,40,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] mb-2 mt-4">
 
-                  <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
 
                     <div className="w-full">
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1F2128] font-bold uppercase tracking-tight">
+                      <h2 className="text-2xl sm:text-3xl text-[#1F2128] font-bold uppercase tracking-tight">
                         {DATA.computerCentre.title}
                       </h2>
 
-                      <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-[#5B5F6B] mt-2 uppercase tracking-[0.18em]">
+                      <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-[#5B5F6B] mt-1.5 uppercase tracking-[0.18em]">
 
 
                       {/*<p className="text-[10px] font-bold sm:text-xs text-gray-400 mt-1 uppercase tracking-widest">*/}
                         {DATA.computerCentre.description}
                       </p>
 
-                      <div className="relative mt-5 h-1 w-full rounded-full bg-gradient-to-r from-[#E4E5EA] via-[#ECEDF1] to-transparent">
+                      <div className="relative mt-4 h-1 w-full rounded-full bg-gradient-to-r from-[#E4E5EA] via-[#ECEDF1] to-transparent">
                         <span className="absolute inset-y-0 left-0 w-24 md:w-28 rounded-full bg-gradient-to-r from-[#C8743A] to-[#E9A66F]" />
                       </div>
                     </div>
@@ -669,25 +669,25 @@ const App = () => {
                         <div
                           key={idx}
                           onClick={() => navigateTo('SubMenu', 'computerCentre', sub.label)}
-                          className={`relative cursor-pointer group isolate overflow-hidden p-6 md:p-7 rounded-3xl border border-[#E6C76B] bg-gradient-to-br from-white via-white/95 ${theme.tint} shadow-[0_12px_30px_-18px_rgba(31,33,40,0.35),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-[#D4AF37] hover:shadow-[0_24px_48px_-20px_rgba(212,175,55,0.55),inset_0_1px_0_rgba(255,255,255,0.9)]`}
+                          className={`relative cursor-pointer group isolate overflow-hidden p-5 md:p-6 rounded-3xl border border-[#E6C76B] bg-gradient-to-br from-white via-white/95 ${theme.tint} shadow-[0_12px_30px_-18px_rgba(31,33,40,0.35),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-[#D4AF37] hover:shadow-[0_24px_48px_-20px_rgba(212,175,55,0.55),inset_0_1px_0_rgba(255,255,255,0.9)]`}
                         >
                           {/* soft corner glow */}
                           <div aria-hidden="true" className={`pointer-events-none absolute -bottom-16 -right-16 -z-10 h-44 w-44 rounded-full bg-gradient-to-tl ${theme.glow} to-transparent opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-100`} />
 
-                          <div className="flex justify-between items-start mb-6">
-                            <div className={`w-14 h-14 rounded-2xl bg-white flex items-center justify-center ${theme.icon} shadow-[0_6px_16px_-6px_rgba(31,33,40,0.25)] ring-1 ring-black/5 transition-transform duration-500 group-hover:scale-105`}>
-                              {React.cloneElement(sub.icon, { size: 28, strokeWidth: 1.9 })}
+                          <div className="flex justify-between items-start mb-4">
+                            <div className={`w-12 h-12 rounded-2xl bg-white flex items-center justify-center ${theme.icon} shadow-[0_6px_16px_-6px_rgba(31,33,40,0.25)] ring-1 ring-black/5 transition-transform duration-500 group-hover:scale-105`}>
+                              {React.cloneElement(sub.icon, { size: 24, strokeWidth: 1.9 })}
                             </div>
                             <div className={`px-3.5 h-8 rounded-full ${theme.chip} text-xs sm:text-sm font-semibold flex items-center justify-center`} title={`${activeCount} active items`}>
                               {activeCount} {activeCount === 1 ? 'Item' : 'Items'}
                             </div>
                           </div>
 
-                          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#1F2128] mb-2">
+                          <h3 className="text-xl font-bold tracking-tight text-[#1F2128] mb-1">
                             {sub.label}
                           </h3>
 
-                          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.06em] text-[#5B5F6B] mt-3 flex items-center gap-1.5 transition-colors group-hover:text-[#B5652C]">
+                          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.06em] text-[#5B5F6B] mt-2 flex items-center gap-1.5 transition-colors group-hover:text-[#B5652C]">
                             Open {sub.label} <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                           </p>
 

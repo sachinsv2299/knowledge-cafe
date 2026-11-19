@@ -7,7 +7,7 @@ import { BookOpen } from "lucide-react";
  */
 const SiteFooter = () => (
   <footer className="relative z-10 mt-auto text-white">
-    <div aria-hidden="true" className="relative h-20 sm:h-24 md:h-32 overflow-hidden">
+    <div aria-hidden="true" className="relative h-10 md:h-12 overflow-hidden">
       {/* translucent back wave — repeats every 1440 units so the slide loops seamlessly */}
       <svg className="kc-wave-back absolute bottom-0 left-0 h-full w-[200%]" viewBox="0 0 2880 160" preserveAspectRatio="none">
         <path
@@ -22,12 +22,12 @@ const SiteFooter = () => (
       </svg>
     </div>
 
-    <div className="-mt-px bg-gradient-to-b from-[#2b2f38] to-[#1f2229] px-6 sm:px-10 pt-4 pb-12 md:pb-14">
-      <div className="max-w-7xl mx-auto">
-        <span className="flex items-center gap-3 text-xl sm:text-2xl font-bold tracking-wide">
-          <BookOpen size={30} className="text-[#D98A4E] shrink-0" /> IITH ICT Knowledge Cafe
+    <div className="-mt-px bg-gradient-to-b from-[#2b2f38] to-[#1f2229] px-6 sm:px-10 pt-1 pb-6 md:pb-4">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        <span className="flex items-center gap-3 text-lg sm:text-xl font-bold tracking-wide">
+          <BookOpen size={26} className="text-[#D98A4E] shrink-0" /> IITH ICT Knowledge Cafe
         </span>
-        <div className="mt-4 space-y-1.5 text-xs sm:text-sm text-white/70">
+        <div className="space-y-1 text-xs text-white/70 lg:text-right">
           <p>ICT - Information and Communication Technology</p>
           <p>Indian Institute of Technology Hyderabad © 2026</p>
           <p className="text-white/60">Developed and Maintained by Computer Centre, IITH</p>
