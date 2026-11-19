@@ -21,6 +21,7 @@ import ISP from './pages/information_security_policy';
 import AUP from './pages/acceptable_usage_policy';
 import VaultUsage from './pages/Vault_Usage';
 import Backup321Policy from './pages/Backup321Policy';
+import ClaudePage from './pages/ClaudePage';
 
 
 import { 
@@ -94,7 +95,7 @@ const App = () => {
   });
 
   // Data Structure following the PDF/Word guidelines
-  const DATA = {
+  const ALL_DATA = {
     community: {
       title: "Community Recipes",
       description: "EXPLORE AND CONTRIBUTE RECIPES TO SHARE KNOWLEDGE AND ENHANCE SKILLS.",
@@ -143,6 +144,8 @@ const App = () => {
           { id: 'cc-sw-os', title: 'Operating System', label: 'Computer Centre : Tool', topic: 'IT', content: 'Supported OS distributions and installation media.', keywords: 'windows 11 pro ubuntu linux download installation' },
           { id: 'cc-sw-off', title: 'Office Software', label: 'Computer Centre : Tool', topic: 'IT', content: 'Productivity suites available for staff and students.', keywords: 'microsoft office 365 word excel powerpoint' },
           
+          // hidden: true keeps this card out of every list; the page still opens at /cc-sw-claude for review. Remove the flag to publish.
+          { id: 'cc-sw-claude', title: 'Claude Enterprise', label: 'Computer Centre : Tool', topic: ['IT', 'AI'], content: "Anthropic's Claude AI assistant for IITH students and faculty. Licensed seats valid for one year.", keywords: 'claude anthropic ai artificial intelligence llm chatbot enterprise licence license seat students faculty', hidden: true },
           { id: 'cc-sw-gem', title: 'Gemini & NotebookLM', label: 'Computer Centre : Tool', topic: 'IT', content: 'Access Gemini AI model and NotebookLM tool. Sign in with your institute email.', link: 'https://gemini.google.com/app', keywords: 'ai artificial intelligence llm google notebook' },
           { id: 'cc-sw-gws', title: 'Google Workspace', label: 'Computer Centre : Tool', topic: 'IT', content: 'Access Google Workspace apps like Gmail, Drive, Meet and more.', keywords: 'gmail drive docs sheets slides meet classroom calendar forms chat keep' },
           { id: 'cc-sw-cop', title: 'GitHub Copilot', label: 'Computer Centre : Tool', topic: 'IT', content: 'Access GitHub Copilot AI coding assistant. Sign in with your institute email ID', link: 'https://github.com/features/copilot', keywords: 'ai coding assistant programming code' },
@@ -216,6 +219,14 @@ const App = () => {
     }
   };
 
+  // Lists and search only see cards without `hidden: true`
+  const DATA = Object.fromEntries(
+    Object.entries(ALL_DATA).map(([key, section]) => [
+      key,
+      { ...section, subMenus: section.subMenus.map(sub => ({ ...sub, items: sub.items.filter(item => !item.hidden) })) }
+    ])
+  );
+
   const TOPICS = [
     "Accounts",
     "AI",
@@ -244,20 +255,20 @@ const App = () => {
   // Helper to find specific item
   const findItem = (id) => {
     const allItems = [
-      ...DATA.community.subMenus.flatMap(s => s.items),
-      ...DATA.computerCentre.subMenus.flatMap(s => s.items)
+      ...ALL_DATA.community.subMenus.flatMap(s => s.items),
+      ...ALL_DATA.computerCentre.subMenus.flatMap(s => s.items)
     ];
     return allItems.find(item => item.id === id);
   };
 
   const findParentMenu = (id) => {
-    for (const sub of DATA.computerCentre.subMenus) {
+    for (const sub of ALL_DATA.computerCentre.subMenus) {
       if (sub.items.some(i => i.id === id)) {
         return { mainCat: "computerCentre", subCat: sub.label };
       }
     }
 
-    for (const sub of DATA.community.subMenus) {
+    for (const sub of ALL_DATA.community.subMenus) {
       if (sub.items.some(i => i.id === id)) {
         return { mainCat: "community", subCat: sub.label };
       }
@@ -1263,6 +1274,10 @@ const App = () => {
           <GoogleWorkspace navigateTo={navigateTo} goBack={goBack} />
         )}
 
+        {view.page === 'ItemDetail' && view.itemId === "cc-sw-claude" && (
+          <ClaudePage navigateTo={navigateTo} goBack={goBack} />
+        )}
+
         {view.page === 'ItemDetail' && view.itemId === "cc-sw-adb" && (
           <AdobeSuite navigateTo={navigateTo} goBack={goBack} />
         )}
@@ -1285,7 +1300,7 @@ const App = () => {
           && view.itemId !== "cc-s-wifi" && view.itemId !== "cc-p-AUP" && view.itemId !== "cc-p-vault" && view.itemId !== "cc-p-ISP" && view.itemId !== "cc-s-cyb" && view.itemId !== "cc-sup-main" && view.itemId !== "cc-s-dis" 
           && view.itemId !== "c-nf-go" && view.itemId !== "c-nf-gws" && view.itemId !== "cc-sw-off" && view.itemId !== "cc-s-ps" && view.itemId !== "cc-hd-2" && view.itemId !== "cc-p-gp" 
           && view.itemId !== "cc-s-lan" && view.itemId !== "cc-s-win" &&  view.itemId !== "cc-sw-os" && view.itemId !== "cc-s-dc" 
-          && view.itemId !== "cc-sw-adb" && view.itemId !== "cc-sw-gws" && view.itemId !== "cc-sw-sci" &&  view.itemId !== "cc-sw-inh" && view.itemId !== "cc-s-int"  && (
+          && view.itemId !== "cc-sw-adb" && view.itemId !== "cc-sw-claude" && view.itemId !== "cc-sw-gws" && view.itemId !== "cc-sw-sci" &&  view.itemId !== "cc-sw-inh" && view.itemId !== "cc-s-int"  && (
 
           <main className="px-4 py-8 md:p-24 bg-[#FDFBF7] min-h-screen">
             <div className="max-w-4xl mx-auto">
