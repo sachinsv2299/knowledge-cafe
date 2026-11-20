@@ -281,14 +281,14 @@ const SectionHeader = ({ eyebrow, title, text }) => (
     {eyebrow && (
       <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#D2691E] mb-2">{eyebrow}</p>
     )}
-    <h2 className="text-2xl md:text-3xl font-bold text-[#4A3728]">{title}</h2>
+    <h2 className="text-2xl md:text-3xl font-bold text-[#A9472A]">{title}</h2>
     {text && <p className="text-gray-600 mt-3 leading-relaxed max-w-3xl">{text}</p>}
   </div>
 );
 
 const IconBadge = ({ icon: Icon, className = "" }) => (
   <span
-    className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#FDF3E7] text-[#8B5E3C] ring-1 ring-[#E6C76B]/60 shrink-0 ${className}`}
+    className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#FDF3E7] text-[#C15F3C] ring-1 ring-[#E6C76B]/60 shrink-0 ${className}`}
   >
     <Icon size={22} strokeWidth={1.8} />
   </span>
@@ -297,7 +297,7 @@ const IconBadge = ({ icon: Icon, className = "" }) => (
 const PermissionCell = ({ value }) => {
   if (value === "only") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-[#8B5E3C] text-white text-[11px] font-bold px-2 py-0.5">
+      <span className="inline-flex items-center gap-1 rounded-full bg-[#C15F3C] text-white text-[11px] font-bold px-2 py-0.5">
         <Check size={12} strokeWidth={3} /> Only
       </span>
     );
@@ -324,13 +324,13 @@ const FaqItem = ({ id, q, a }) => {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-controls={id}
-        className="w-full min-h-[44px] flex items-center justify-between gap-3 p-3 sm:p-4 text-left text-sm sm:text-base font-medium text-[#4A3728] hover:bg-[#FDFBF7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+        className="w-full min-h-[44px] flex items-center justify-between gap-3 p-3 sm:p-4 text-left text-sm sm:text-base font-medium text-[#A9472A] hover:bg-[#FDFBF7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
       >
         <span className="min-w-0">{q}</span>
         {open ? (
-          <Minus size={18} className="text-[#8B5E3C] shrink-0" />
+          <Minus size={18} className="text-[#C15F3C] shrink-0" />
         ) : (
-          <Plus size={18} className="text-[#8B5E3C] shrink-0" />
+          <Plus size={18} className="text-[#C15F3C] shrink-0" />
         )}
       </button>
       {open && (
@@ -360,7 +360,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
 
       <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
         {/* ---------------- Hero ---------------- */}
-        <section className="relative overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#4A3728] via-[#6B4A32] to-[#8B5E3C] text-white p-6 sm:p-10 md:p-14 shadow-lg">
+        <section className="relative overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#A9472A] via-[#C15F3C] to-[#D97757] text-white p-6 sm:p-10 md:p-14 shadow-lg">
           <div aria-hidden className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#D4AF37]/20 blur-3xl" />
           <div aria-hidden className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-[#F28972]/20 blur-3xl" />
 
@@ -383,7 +383,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 href="https://claude.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF37] text-[#2E2116] font-bold px-5 py-3 hover:bg-[#E6C76B] transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF37] text-[#7A2E18] font-bold px-5 py-3 hover:bg-[#E6C76B] transition"
               >
                 Open Claude <ArrowRight size={18} />
               </a>
@@ -437,7 +437,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                   <IconBadge icon={icon} />
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase tracking-wider text-[#D2691E]">{audience}</p>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#4A3728]">{name}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#A9472A]">{name}</h3>
                   </div>
                 </div>
                 <ul className="mt-5 space-y-3">
@@ -468,15 +468,15 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 className="relative flex xl:flex-col gap-4 xl:gap-3 rounded-2xl border border-[#E6C76B]/70 bg-[#FDFBF7] p-4 sm:p-5"
               >
                 <div className="relative shrink-0">
-                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#8B5E3C] text-white shadow-md">
+                  <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#C15F3C] text-white shadow-md">
                     <Icon size={22} strokeWidth={1.8} />
                   </span>
-                  <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 rounded-full bg-[#D4AF37] text-[#2E2116] text-[11px] font-bold ring-2 ring-white">
+                  <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 rounded-full bg-[#D4AF37] text-[#7A2E18] text-[11px] font-bold ring-2 ring-white">
                     {i + 1}
                   </span>
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-bold text-[#4A3728]">{title}</h3>
+                  <h3 className="font-bold text-[#A9472A]">{title}</h3>
                   <p className="text-sm text-gray-600 mt-1 leading-relaxed">{text}</p>
                 </div>
               </li>
@@ -486,23 +486,23 @@ const ClaudePage = ({ navigateTo, goBack }) => {
           {/* Validity timeline */}
           <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#FDF3E7] to-[#FDFBF7] border border-[#E6C76B] p-5 sm:p-6">
             <div className="flex items-center gap-3 mb-4">
-              <Clock size={20} className="text-[#8B5E3C]" />
-              <h3 className="font-bold text-[#4A3728]">Licence validity</h3>
+              <Clock size={20} className="text-[#C15F3C]" />
+              <h3 className="font-bold text-[#A9472A]">Licence validity</h3>
             </div>
             <div className="relative h-3 rounded-full bg-[#E6C76B]/40 overflow-hidden">
-              <div className="absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-[#D4AF37] via-[#D2691E] to-[#8B5E3C]" />
+              <div className="absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-[#D4AF37] via-[#D2691E] to-[#C15F3C]" />
             </div>
             <div className="mt-3 flex justify-between gap-4 text-xs sm:text-sm">
               <div>
-                <p className="font-bold text-[#4A3728]">Licence assigned</p>
+                <p className="font-bold text-[#A9472A]">Licence assigned</p>
                 <p className="text-gray-500">Access starts</p>
               </div>
               <div className="text-center hidden sm:block">
-                <p className="font-bold text-[#4A3728]">12 months</p>
+                <p className="font-bold text-[#A9472A]">12 months</p>
                 <p className="text-gray-500">Full access</p>
               </div>
               <div className="text-right">
-                <p className="font-bold text-[#4A3728]">One year later</p>
+                <p className="font-bold text-[#A9472A]">One year later</p>
                 <p className="text-gray-500">Access ends</p>
               </div>
             </div>
@@ -523,14 +523,14 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 key={title}
                 className="group rounded-2xl border border-[#E6C76B]/70 p-5 hover:border-[#D4AF37] hover:bg-[#FDFBF7] transition"
               >
-                <IconBadge icon={icon} className="group-hover:bg-[#8B5E3C] group-hover:text-white transition" />
-                <h3 className="mt-4 font-bold text-[#4A3728]">{title}</h3>
+                <IconBadge icon={icon} className="group-hover:bg-[#C15F3C] group-hover:text-white transition" />
+                <h3 className="mt-4 font-bold text-[#A9472A]">{title}</h3>
                 <p className="mt-1 text-sm text-gray-600 leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
 
-          <h3 className="mt-10 mb-4 text-lg font-bold text-[#8B5E3C]">Sign in on any device</h3>
+          <h3 className="mt-10 mb-4 text-lg font-bold text-[#C15F3C]">Sign in on any device</h3>
           <div className="grid sm:grid-cols-3 gap-4">
             {PLATFORMS.map(({ icon: Icon, name, detail, href }) => (
               <a
@@ -540,11 +540,11 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 rounded-2xl bg-[#FDFBF7] border border-[#E6C76B] p-4 hover:shadow-md hover:-translate-y-0.5 transition"
               >
-                <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-[#4A3728] text-[#E6C76B] shrink-0">
+                <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-[#A9472A] text-[#E6C76B] shrink-0">
                   <Icon size={22} />
                 </span>
                 <span className="min-w-0">
-                  <span className="block font-bold text-[#4A3728]">{name}</span>
+                  <span className="block font-bold text-[#A9472A]">{name}</span>
                   <span className="block text-sm text-gray-500">{detail}</span>
                 </span>
               </a>
@@ -567,7 +567,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
             ].map(({ icon, title, text }) => (
               <div key={title} className="rounded-2xl bg-[#FDFBF7] border border-[#E6C76B]/70 p-5">
                 <IconBadge icon={icon} />
-                <h3 className="mt-3 font-bold text-[#4A3728]">{title}</h3>
+                <h3 className="mt-3 font-bold text-[#A9472A]">{title}</h3>
                 <p className="mt-1 text-sm text-gray-600 leading-relaxed">{text}</p>
               </div>
             ))}
@@ -576,14 +576,14 @@ const ClaudePage = ({ navigateTo, goBack }) => {
             <button
               type="button"
               onClick={() => openPolicy("cc-p-AUP")}
-              className="inline-flex items-center gap-2 rounded-xl border border-[#8B5E3C] text-[#8B5E3C] px-4 py-2 text-sm font-semibold hover:bg-[#8B5E3C] hover:text-white transition"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#C15F3C] text-[#C15F3C] px-4 py-2 text-sm font-semibold hover:bg-[#C15F3C] hover:text-white transition"
             >
               Acceptable Usage Policy <ArrowRight size={16} />
             </button>
             <button
               type="button"
               onClick={() => openPolicy("cc-p-ISP")}
-              className="inline-flex items-center gap-2 rounded-xl border border-[#8B5E3C] text-[#8B5E3C] px-4 py-2 text-sm font-semibold hover:bg-[#8B5E3C] hover:text-white transition"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#C15F3C] text-[#C15F3C] px-4 py-2 text-sm font-semibold hover:bg-[#C15F3C] hover:text-white transition"
             >
               Information Security Policy <ArrowRight size={16} />
             </button>
@@ -604,7 +604,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 key={name}
                 className={`rounded-2xl p-5 border ${
                   i === 3
-                    ? "bg-gradient-to-br from-[#4A3728] to-[#8B5E3C] text-white border-transparent"
+                    ? "bg-gradient-to-br from-[#A9472A] to-[#C15F3C] text-white border-transparent"
                     : "bg-[#FDFBF7] border-[#E6C76B]"
                 }`}
               >
@@ -612,7 +612,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                   icon={icon}
                   className={i === 3 ? "bg-white/15 text-[#E6C76B] ring-white/25" : ""}
                 />
-                <h3 className={`mt-4 text-lg font-bold ${i === 3 ? "text-white" : "text-[#4A3728]"}`}>{name}</h3>
+                <h3 className={`mt-4 text-lg font-bold ${i === 3 ? "text-white" : "text-[#A9472A]"}`}>{name}</h3>
                 <p className={`text-xs font-semibold uppercase tracking-wider ${i === 3 ? "text-[#E6C76B]" : "text-[#D2691E]"}`}>
                   {who}
                 </p>
@@ -642,7 +642,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[620px] text-sm">
                 <thead>
-                  <tr className="bg-[#4A3728] text-white">
+                  <tr className="bg-[#A9472A] text-white">
                     <th scope="col" className="text-left font-semibold px-4 py-3">Permission</th>
                     {["Member", "Admin", "Owner", "Primary Owner"].map((r) => (
                       <th key={r} scope="col" className="font-semibold px-3 py-3 text-center whitespace-nowrap">
@@ -699,9 +699,9 @@ const ClaudePage = ({ navigateTo, goBack }) => {
             {/* Audit logs */}
             <div className="rounded-2xl border border-[#E6C76B] overflow-hidden flex flex-col">
               <div className="flex items-center gap-3 bg-[#FDF3E7] px-5 py-4 border-b border-[#E6C76B]">
-                <Activity size={22} className="text-[#8B5E3C]" />
+                <Activity size={22} className="text-[#C15F3C]" />
                 <div>
-                  <h3 className="font-bold text-[#4A3728]">Audit logs</h3>
+                  <h3 className="font-bold text-[#A9472A]">Audit logs</h3>
                   <p className="text-xs text-gray-600">Owners & Primary Owner · last 180 days</p>
                 </div>
               </div>
@@ -744,7 +744,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
 
             {/* Data export */}
             <div className="rounded-2xl border border-[#E6C76B] overflow-hidden flex flex-col">
-              <div className="flex items-center gap-3 bg-[#4A3728] text-white px-5 py-4">
+              <div className="flex items-center gap-3 bg-[#A9472A] text-white px-5 py-4">
                 <Database size={22} className="text-[#E6C76B]" />
                 <div>
                   <h3 className="font-bold">Workspace data export</h3>
@@ -803,7 +803,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
           <div className="mt-6 flex gap-3 rounded-2xl bg-gradient-to-r from-[#FDF3E7] to-white border border-[#D4AF37] p-5">
             <AlertTriangle size={22} className="text-[#D2691E] shrink-0" />
             <div className="text-sm sm:text-base text-gray-700">
-              <p className="font-bold text-[#4A3728]">Treat every Claude chat as an institute record.</p>
+              <p className="font-bold text-[#A9472A]">Treat every Claude chat as an institute record.</p>
               <p className="mt-1">
                 Your chats are part of the institute's workspace, so use Claude for academic and work-related tasks.
               </p>
@@ -820,7 +820,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
           <div className="space-y-8">
             {FAQ_GROUPS.map((group, gi) => (
               <div key={group.title}>
-                <h3 className="text-lg font-bold text-[#8B5E3C] mb-3">{group.title}</h3>
+                <h3 className="text-lg font-bold text-[#C15F3C] mb-3">{group.title}</h3>
                 <div className="space-y-3">
                   {group.items.map((item, qi) => (
                     <FaqItem key={item.q} id={`claude-faq-${gi}-${qi}`} q={item.q} a={item.a} />
@@ -832,7 +832,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
         </section>
 
         {/* ---------------- Support ---------------- */}
-        <section className="rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#4A3728] to-[#8B5E3C] text-white p-6 sm:p-10 md:p-12 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+        <section className="rounded-3xl md:rounded-[2.5rem] bg-gradient-to-br from-[#A9472A] via-[#C15F3C] to-[#D97757] text-white p-6 sm:p-10 md:p-12 flex flex-col md:flex-row md:items-center gap-6 justify-between">
           <div className="flex gap-4">
             <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/15 text-[#E6C76B] shrink-0">
               <LifeBuoy size={24} />
@@ -849,7 +849,7 @@ const ClaudePage = ({ navigateTo, goBack }) => {
               href="https://support.comp.iith.ac.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF37] text-[#2E2116] font-bold px-5 py-3 hover:bg-[#E6C76B] transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF37] text-[#7A2E18] font-bold px-5 py-3 hover:bg-[#E6C76B] transition"
             >
               Raise a ticket
             </a>
