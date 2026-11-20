@@ -172,6 +172,24 @@ const EXPORT_LIMITS = [
   { title: "Admins and Members", text: "Neither role can run an audit-log export or a data export." },
 ];
 
+const SAFEGUARDS = [
+  {
+    icon: Lock,
+    title: "Primary Owner access is controlled",
+    text: "Sign-in to the Primary Owner account is strictly controlled, and every export attempt is captured in the audit logs.",
+  },
+  {
+    icon: Database,
+    title: "Data export to be disabled",
+    text: "The institute did not ask for the data export feature. We are working with Claude's customer support team to have it disabled by default.",
+  },
+  {
+    icon: EyeOff,
+    title: "No monitoring of your conversations",
+    text: "The institute can access user data, with support from Anthropic, only if required for legal matters or safety concerns. Outside these situations, the institute does not monitor your inputs or conversations.",
+  },
+];
+
 const FAQ_GROUPS = [
   {
     title: "Access & licence",
@@ -215,7 +233,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Will Anthropic use my chats to train its models?",
-        a: "Under Anthropic's commercial terms for Claude Enterprise, chats and files in the workspace are not used to train Anthropic's models by default.",
+        a: "No. Under Section B of Anthropic's Commercial Terms, which apply to the IITH Claude Enterprise workspace, your inputs and Claude's outputs are not used to train Anthropic's models.",
       },
       {
         q: "How long are my chats kept?",
@@ -762,6 +780,24 @@ const ClaudePage = ({ navigateTo, goBack }) => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Safeguards around data export */}
+          <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 sm:p-6">
+            <p className="flex items-center gap-2 font-bold text-emerald-800 mb-4">
+              <ShieldCheck size={20} className="shrink-0" /> How the institute protects your data
+            </p>
+            <ul className="grid md:grid-cols-3 gap-4 text-sm text-gray-700">
+              {SAFEGUARDS.map(({ icon: Icon, title, text }) => (
+                <li key={title} className="flex gap-3 rounded-xl bg-white border border-emerald-200 p-4">
+                  <Icon size={18} className="text-emerald-700 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-800">{title}</p>
+                    <p className="mt-1 leading-relaxed">{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-6 flex gap-3 rounded-2xl bg-gradient-to-r from-[#FDF3E7] to-white border border-[#D4AF37] p-5">
